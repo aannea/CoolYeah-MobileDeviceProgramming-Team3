@@ -28,7 +28,7 @@ class _MainPendidikNavigatorState extends State<MainPendidikNavigator> {
     Icon(Icons.person, size: 30),
   ];
 
-  int _selectedIndex = 2;
+  int _selectedIndex = 0;
 
   List<Widget> _screens = [
     LaporanKeseluruhanAnaksScreen(),
