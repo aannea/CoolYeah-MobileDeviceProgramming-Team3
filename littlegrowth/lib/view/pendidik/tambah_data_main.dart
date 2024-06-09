@@ -3,13 +3,17 @@
 import 'package:flutter/material.dart';
 import 'package:littlegrowth/utils/hex_to_color.dart';
 
-class WaliMuridHomeScreen extends StatelessWidget {
+class TambahDataAnakMainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Wali Murid Home')),
+      appBar: AppBar(
+        title: Text('Tambah Data Anaks'),
+      ),
       backgroundColor: HexToColor().hexStringToColor("62C9D8"),
-      body: Center(child: Text('Welcome, Wali Murid')),
+      body: Center(
+        child: Text('Form untuk menambah data anak-anak akan di sini'),
+      ),
     );
   }
 }
