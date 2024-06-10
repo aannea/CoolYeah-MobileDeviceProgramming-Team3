@@ -4,6 +4,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:littlegrowth/utils/hex_to_color.dart';
 import 'package:littlegrowth/view/pendidik/akun_pendidik.dart';
+import 'package:littlegrowth/view/pendidik/daftar_anak.dart';
 import 'package:littlegrowth/view/pendidik/home.dart';
 import 'package:littlegrowth/view/pendidik/laporan_keseluruhan.dart';
 import 'package:littlegrowth/view/pendidik/tambah_data_anak.dart';
@@ -32,7 +33,7 @@ class _MainPendidikNavigatorState extends State<MainPendidikNavigator> {
 
   List<Widget> _screens = [
     LaporanKeseluruhanAnaksScreen(),
-    TambahDataAnakMainScreen(),
+    DaftarAnak(),
     HomePendidik(),
     TambahPesertaAnakScreen(),
     AkunPendidikScreen()

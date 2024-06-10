@@ -226,7 +226,7 @@ class LaporanKeseluruhanAnaksScreen extends StatelessWidget {
                   Row(
                   children: [
                     Text(
-                      'Laporan Fisik', 
+                      'Laporan Akademik',
                       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.white), textAlign: TextAlign.start),
                     ],
                   ),

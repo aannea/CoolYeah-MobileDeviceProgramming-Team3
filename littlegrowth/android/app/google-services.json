@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "61978940688",
+    "project_id": "littlegrowth",
+    "storage_bucket": "littlegrowth.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:61978940688:android:12719555d4e2d678e98195",
+        "android_client_info": {
+          "package_name": "com.littlegrowth.littlegrowth"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdjsWIWNRLhvji_YzqIDKYLGK5WFg5Ddw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
