@@ -2,9 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:littlegrowth/utils/hex_to_color.dart';
-import 'tambahDataLaporanAkademikEmosional.dart';
-import 'tambahDataLaporanAkademikKognitif.dart';
-import 'tambahDataLaporanAkademikMotorik.dart';
+import 'tambah_emosional.dart';
+import 'tambah_kognitif.dart';
+import 'tambah_motorik.dart';
+import 'tambah_sosial.dart';
 
 class TambahDataAnakMainScreen extends StatelessWidget {
   @override

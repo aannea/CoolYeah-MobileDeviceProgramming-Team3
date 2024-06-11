@@ -81,6 +81,7 @@ flutter:
           - images/child.png
           - images/pendidik_hero.png
           - images/pendidik_LA.png
+          - images/
 
      # An image asset can refer to one or more resolution-specific "variants", see
      # https://flutter.dev/assets-and-images/#resolution-aware
