@@ -17,11 +17,9 @@ class LaporanKeseluruhanAnaksScreen extends StatelessWidget {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-
                   Text(
                       'Laporan Perkembangan Anak', 
                       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30, color: Colors.white), textAlign: TextAlign.center),
-
                   SizedBox(height: 50,),
                   Row(
                   children: [
