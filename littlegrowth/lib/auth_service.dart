@@ -46,7 +46,7 @@ class AuthService extends ChangeNotifier {
         password: password,
       );
       await _firestore.collection('users').doc(userCredential.user?.uid).set({
-        'id': userCredential.user?.uid,
+        'id': userCredential.user?.uid.toString(),
         'email': email,
         'role': role,
       });
@@ -118,5 +118,10 @@ class AuthService extends ChangeNotifier {
       await _prefs!.remove('user_role');
       await _prefs!.remove('user_email');
     }
+  }
+
+  Future<String?> getUserIdFromPrefs() async {
+    String? userId = _prefs!.getString('user_id');
+    return userId;
   }
 }
