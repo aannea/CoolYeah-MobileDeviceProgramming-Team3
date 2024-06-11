@@ -47,22 +47,25 @@ class TambahProfilAnak extends StatelessWidget {
               buildDataField('Jenis Kelamin'),
               buildDataField('Username'),
               buildDataField('Password'),
-              SizedBox(height: 20), // Add some spacing before the button
+              SizedBox(height: 100), // Add some spacing before the button
               Center(
                 child: ElevatedButton(
                   onPressed: () {
-                    // Add your button action here
+                    // tambah ke backend
                   },
                   style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                    padding: EdgeInsets.symmetric(horizontal: 100, vertical: 15),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(30),
                     ),
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text('Sign Up'),
+                      Text(
+                        'Tambah Anak Baru',
+                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Color(0xFFF0097BD)),
+                      ),
                       SizedBox(width: 8), // Spasi antara teks dan ikon
                     ],
                   ),

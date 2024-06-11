@@ -5,6 +5,7 @@ import 'package:littlegrowth/utils/hex_to_color.dart';
 import 'package:littlegrowth/view/pendidik/tambah_data_main.dart';
 import 'tambah_data_anak.dart';
 import 'tambah_profil.dart';
+import 'edit_profil.dart';
 
 class TambahPesertaAnakScreen extends StatelessWidget {
   @override
@@ -35,7 +36,7 @@ class TambahPesertaAnakScreen extends StatelessWidget {
                           onTap: (){
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => TambahProfilAnak()),
+                              MaterialPageRoute(builder: (context) => EditProfil()),
                             );
                           },
                           child: Container(
@@ -49,13 +50,13 @@ class TambahPesertaAnakScreen extends StatelessWidget {
                               child: Row(
                                 children: [
                                   CircleAvatar(
-                                    backgroundImage: AssetImage('../images/child.png'),
+                                    backgroundImage: AssetImage('./../images/child.png'),
                                     radius: 25,
                                   ),
                                   SizedBox(width: 10,),
                                   Center(
                                     child: Text(
-                                      'Park Jee',
+                                      'Casey Caspol',
                                       style: TextStyle(
                                         color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold,
                                       ),
@@ -70,7 +71,7 @@ class TambahPesertaAnakScreen extends StatelessWidget {
                                               onPressed: () {
                                                 Navigator.push(
                                                     context,
-                                                    MaterialPageRoute(builder: (context) => TambahProfilAnak())
+                                                    MaterialPageRoute(builder: (context) => EditProfil())
                                                 );
                                               }
                                           ),
@@ -112,13 +113,13 @@ class TambahPesertaAnakScreen extends StatelessWidget {
                               child: Row(
                                 children: [
                                   CircleAvatar(
-                                    backgroundImage: AssetImage('../images/child.png'),
+                                    backgroundImage: AssetImage('./../images/child.png'),
                                     radius: 25,
                                   ),
                                   SizedBox(width: 10,),
                                   Center(
                                     child: Text(
-                                      'Park Jee',
+                                      'Jasmine Auliya',
                                       style: TextStyle(
                                         color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold,
                                       ),
@@ -133,7 +134,7 @@ class TambahPesertaAnakScreen extends StatelessWidget {
                                               onPressed: () {
                                                 Navigator.push(
                                                     context,
-                                                    MaterialPageRoute(builder: (context) => TambahProfilAnak())
+                                                    MaterialPageRoute(builder: (context) => EditProfil())
                                                 );
                                               }
                                           ),
@@ -174,7 +175,7 @@ class TambahPesertaAnakScreen extends StatelessWidget {
                               child: Row(
                                 children: [
                                   CircleAvatar(
-                                    backgroundImage: AssetImage('../images/child.png'),
+                                    backgroundImage: AssetImage('./../images/child.png'),
                                     radius: 25,
                                   ),
                                   SizedBox(width: 10,),
@@ -210,11 +211,31 @@ class TambahPesertaAnakScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-
               ],
             ),
           )
       ),
+      //button
+      floatingActionButton: Padding(
+        padding: EdgeInsets.only(bottom: 100),
+        child: SizedBox(
+          height: 80, width: 80,
+          child: FloatingActionButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => TambahProfilAnak()),
+              );
+            },
+            child: Icon(Icons.add, size: 40, color: Color(0xFFF59999),),
+            backgroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(50),
+            ),
+          ),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }

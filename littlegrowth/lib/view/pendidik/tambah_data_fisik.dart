@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:littlegrowth/utils/hex_to_color.dart';
 
 class tambahDataFisik extends StatelessWidget {
   @override
@@ -14,6 +13,7 @@ class tambahDataFisik extends StatelessWidget {
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: (){
+            Navigator.pop(context);
           },
         ),
       ),
@@ -61,11 +61,11 @@ class tambahDataFisik extends StatelessWidget {
               buildDataField('Berat Badan'),
               buildDataField('Tinggi Badan'),
               buildDataField('Lingkar Kepala'),
-              Spacer(),
+              SizedBox(height: 20),
               Center(
                 child: ElevatedButton(
                   onPressed: () {
-          
+
                   },
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
@@ -77,7 +77,7 @@ class tambahDataFisik extends StatelessWidget {
                     'Simpan',
                     style: TextStyle(
                       fontSize: 18,
-                      color: Colors.white,
+                      color: Colors.black,
                     ),
                   ),
                 ),
