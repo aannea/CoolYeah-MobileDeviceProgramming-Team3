@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:littlegrowth/utils/hex_to_color.dart';
 import 'package:littlegrowth/view/pendidik/models/pendidik_todo.dart';
 import 'package:littlegrowth/view/pendidik/services/todo_service.dart';
-import 'package:littlegrowth/view/pendidik/utils/todo_list.dart';
 
 class HomePendidik extends StatelessWidget {
   final TextEditingController _textEditingController = TextEditingController();
@@ -203,7 +202,7 @@ class HomePendidik extends StatelessWidget {
             MaterialButton(
               color: HexToColor().hexStringToColor('62C9D8'),
               textColor: Colors.white,
-              child: Text('Ok'),
+              child: Text('Buat'),
               onPressed: () {
                 Todo todo = Todo(
                   task: _textEditingController.text,

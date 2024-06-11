@@ -5,7 +5,6 @@ import 'package:littlegrowth/utils/hex_to_color.dart';
 import 'tambahDataLaporanAkademikEmosional.dart';
 import 'tambahDataLaporanAkademikKognitif.dart';
 import 'tambahDataLaporanAkademikMotorik.dart';
-import 'tambahDataLaporanAkademikSosial.dart';
 
 class TambahDataAnakMainScreen extends StatelessWidget {
   @override
@@ -22,132 +21,142 @@ class TambahDataAnakMainScreen extends StatelessWidget {
           children: [
             Text(
               'Laporan Akademik',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 16),
             Row(
               children: [
                 Expanded(
                     child: GestureDetector(
-                      onTap: (){
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => LaporanKognitif()),
-                        );
-                      },
-                      child: Container(
-                        height: 150,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: NetworkImage('./../images/kognitif.png'),
-                            fit: BoxFit.cover,
-                          ),
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                        child: Center(
-                          child: Text(
-                            'Kognitif',
-                            style: TextStyle(
-                              color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold,
-                            ),
-                          ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => LaporanKognitif()),
+                    );
+                  },
+                  child: Container(
+                    height: 150,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: NetworkImage('./../images/kognitif.png'),
+                        fit: BoxFit.cover,
+                      ),
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    child: Center(
+                      child: Text(
+                        'Kognitif',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
-                    )
+                    ),
+                  ),
+                )),
+                SizedBox(
+                  width: 16,
                 ),
-
-                SizedBox(width: 16,),
                 Expanded(
                     child: GestureDetector(
-                      onTap: (){
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => LaporanMotorik()),
-                        );
-                      },
-                      child: Container(
-                        height: 150,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: NetworkImage('./../images/motorik.png'),
-                            fit: BoxFit.cover,
-                          ),
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                        child: Center(
-                          child: Text(
-                            'Motorik',
-                            style: TextStyle(
-                              color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold,
-                            ),
-                          ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => LaporanMotorik()),
+                    );
+                  },
+                  child: Container(
+                    height: 150,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: NetworkImage('./../images/motorik.png'),
+                        fit: BoxFit.cover,
+                      ),
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    child: Center(
+                      child: Text(
+                        'Motorik',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
-                    )
-                ),
+                    ),
+                  ),
+                )),
               ],
             ),
-            SizedBox(height: 20,),
+            SizedBox(
+              height: 20,
+            ),
             Row(
               children: [
                 Expanded(
                     child: GestureDetector(
-                      onTap: (){
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => LaporanEmosional()),
-                        );
-                      },
-                      child: Container(
-                        height: 150,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: NetworkImage('./../images/emosional.png'),
-                            fit: BoxFit.cover,
-                          ),
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                        child: Center(
-                          child: Text(
-                            'Emosional',
-                            style: TextStyle(
-                              color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold,
-                            ),
-                          ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => LaporanEmosional()),
+                    );
+                  },
+                  child: Container(
+                    height: 150,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: NetworkImage('./../images/emosional.png'),
+                        fit: BoxFit.cover,
+                      ),
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    child: Center(
+                      child: Text(
+                        'Emosional',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
-                    )
+                    ),
+                  ),
+                )),
+                SizedBox(
+                  width: 16,
                 ),
-
-                SizedBox(width: 16,),
                 Expanded(
                     child: GestureDetector(
-                      onTap: (){
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => LaporanMotorik()),
-                        );
-                      },
-                      child: Container(
-                        height: 150,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: NetworkImage('./../images/sosial.png'),
-                            fit: BoxFit.cover,
-                          ),
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                        child: Center(
-                          child: Text(
-                            'Sosial',
-                            style: TextStyle(
-                              color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold,
-                            ),
-                          ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => LaporanMotorik()),
+                    );
+                  },
+                  child: Container(
+                    height: 150,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: NetworkImage('./../images/sosial.png'),
+                        fit: BoxFit.cover,
+                      ),
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    child: Center(
+                      child: Text(
+                        'Sosial',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
-                    )
-                ),
+                    ),
+                  ),
+                )),
               ],
             )
           ],

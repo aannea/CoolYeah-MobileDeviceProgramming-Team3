@@ -8,7 +8,6 @@ import 'package:littlegrowth/view/pendidik/daftar_anak.dart';
 import 'package:littlegrowth/view/pendidik/home.dart';
 import 'package:littlegrowth/view/pendidik/laporan_keseluruhan.dart';
 import 'package:littlegrowth/view/pendidik/tambah_data_anak.dart';
-import 'package:littlegrowth/view/pendidik/tambah_data_main.dart';
 
 class MainPendidikNavigator extends StatefulWidget {
   const MainPendidikNavigator({super.key});
