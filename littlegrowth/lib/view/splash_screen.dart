@@ -3,6 +3,9 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 
+import 'package:littlegrowth/auth_service.dart';
+import 'package:provider/provider.dart';
+
 class SplashScreen extends StatefulWidget {
   @override
   _SplashScreenState createState() => _SplashScreenState();
@@ -12,12 +15,23 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    _navigateToLogin();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _navigateToLogin();
+    });
   }
 
-  _navigateToLogin() async {
-    await Future.delayed(Duration(seconds: 3), () {});
-    Navigator.pushReplacementNamed(context, '/login');
+  Future<void> _navigateToLogin() async {
+    await Future.delayed(Duration(seconds: 3));
+    var authService = Provider.of<AuthService>(context, listen: false);
+    var user = authService.currentUser;
+
+    if (!mounted) return; // Check if the widget is still in the widget tree
+
+    if (user != null) {
+      Navigator.pushReplacementNamed(context, '/home');
+    } else {
+      Navigator.pushReplacementNamed(context, '/login');
+    }
   }
 
   @override

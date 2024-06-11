@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:provider/provider.dart';
 import 'package:littlegrowth/auth_service.dart';
+import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -15,7 +15,24 @@ class _LoginPageState extends State<LoginPage> {
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
   bool _isPasswordVisible = false;
-  String _errorMessage = '';
+
+  void _showSuccessSnackbar(String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        backgroundColor: Colors.green,
+      ),
+    );
+  }
+
+  void _showErrorSnackbar(String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        backgroundColor: Colors.red,
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +69,7 @@ class _LoginPageState extends State<LoginPage> {
                         TextFormField(
                           controller: _usernameController,
                           decoration: InputDecoration(
-                            labelText: 'Username',
+                            labelText: 'Email',
                             suffixIcon: Icon(CupertinoIcons.mail),
                           ),
                           validator: (value) {
@@ -97,21 +114,28 @@ class _LoginPageState extends State<LoginPage> {
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 10, vertical: 5),
                               child: ElevatedButton(
-                                onPressed: () {
+                                onPressed: () async {
                                   if (_formKey.currentState?.validate() ==
                                       true) {
-                                    authService.login(
-                                      _usernameController.text,
-                                      _passwordController.text,
-                                    );
+                                    try {
+                                      await authService.login(
+                                        _usernameController.text,
+                                        _passwordController.text,
+                                      );
 
-                                    if (authService.currentUser != null) {
-                                      Navigator.pushReplacementNamed(
-                                          context, '/home');
-                                    } else {
+                                      if (authService.currentUser != null) {
+                                        _showSuccessSnackbar('Login Success');
+                                        Navigator.pushReplacementNamed(
+                                            context, '/home');
+                                      } else {
+                                        _showErrorSnackbar(
+                                            'Invalid username or password');
+                                      }
+                                    } catch (e) {
                                       setState(() {
-                                        _errorMessage =
-                                            'Invalid username or password';
+                                        _showErrorSnackbar(
+                                            'Invalid username or password');
+                                        print(e.toString());
                                       });
                                     }
                                   }
@@ -129,14 +153,6 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           ),
                         ),
-                        if (_errorMessage.isNotEmpty)
-                          Padding(
-                            padding: const EdgeInsets.only(top: 20),
-                            child: Text(
-                              _errorMessage,
-                              style: TextStyle(color: Colors.red),
-                            ),
-                          ),
                       ],
                     ),
                   ),
