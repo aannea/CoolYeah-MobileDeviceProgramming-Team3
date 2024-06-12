@@ -3,9 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:littlegrowth/utils/hex_to_color.dart';
 import 'package:littlegrowth/view/pendidik/daftar_anak.dart';
+import 'package:littlegrowth/view/pendidik/models/pendidik_anaks.dart';
 import 'package:littlegrowth/view/pendidik/models/pendidik_todo.dart';
 import 'package:littlegrowth/view/pendidik/services/todo_service.dart';
-import 'package:littlegrowth/view/pendidik/tambah_data_fisik.dart';
 import 'package:littlegrowth/view/pendidik/tambah_data_main.dart';
 
 class HomePendidik extends StatelessWidget {
@@ -45,8 +45,8 @@ class HomePendidik extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) =>
-                                    TambahDataAnakMainScreen()),
+                              builder: (context) => DaftarAnak(),
+                            ),
                           );
                         },
                         child: Padding(
@@ -77,8 +77,8 @@ class HomePendidik extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) =>
-                                    TambahDataAnakMainScreen()),
+                              builder: (context) => DaftarAnak(),
+                            ),
                           );
                         },
                         child: Padding(
@@ -145,53 +145,65 @@ class HomePendidik extends StatelessWidget {
                     child: StreamBuilder(
                       stream: _todoService.getTodos(),
                       builder: (context, snapshot) {
-                        List todos = snapshot.data?.docs ?? [];
-                        if (todos.isEmpty) {
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
                           return Center(
-                            child: Text("Add a todo!"),
+                            child: CircularProgressIndicator(),
                           );
-                        }
-                        return ListView.builder(
-                          itemCount: todos.length,
-                          itemBuilder: (context, index) {
-                            Todo todo = todos[index].data();
-                            String todoId = todos[index].id;
-                            return Container(
-                              margin: const EdgeInsets.all(5.0),
-                              decoration: BoxDecoration(
-                                color: HexToColor().hexStringToColor('62C9D8'),
-                                borderRadius: BorderRadius.circular(10.0),
-                              ),
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(
-                                  vertical: 10,
-                                  horizontal: 10,
+                        } else if (snapshot.hasError) {
+                          return Center(
+                            child: Text("Error: ${snapshot.error}"),
+                          );
+                        } else {
+                          List todos = snapshot.data?.docs ?? [];
+                          if (todos.isEmpty) {
+                            return Center(
+                              child: Text("Add a todo!"),
+                            );
+                          }
+                          return ListView.builder(
+                            itemCount: todos.length,
+                            itemBuilder: (context, index) {
+                              Todo todo = todos[index].data();
+                              String todoId = todos[index].id;
+                              return Container(
+                                margin: const EdgeInsets.all(5.0),
+                                decoration: BoxDecoration(
+                                  color:
+                                      HexToColor().hexStringToColor('62C9D8'),
+                                  borderRadius: BorderRadius.circular(10.0),
                                 ),
-                                child: ListTile(
-                                  title: Expanded(
-                                    child: Text(
-                                      todo.task,
-                                      softWrap: true,
-                                      overflow: TextOverflow.visible,
-                                    ),
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(
+                                    vertical: 10,
+                                    horizontal: 10,
                                   ),
-                                  trailing: Checkbox(
-                                    value: todo.isDone,
-                                    onChanged: (value) {
-                                      Todo updateTodo =
-                                          todo.copyWith(isDone: !todo.isDone);
-                                      _todoService.updateTodo(
-                                          todoId, updateTodo);
+                                  child: ListTile(
+                                    title: Expanded(
+                                      child: Text(
+                                        todo.task,
+                                        softWrap: true,
+                                        overflow: TextOverflow.visible,
+                                      ),
+                                    ),
+                                    trailing: Checkbox(
+                                      value: todo.isDone,
+                                      onChanged: (value) {
+                                        Todo updateTodo =
+                                            todo.copyWith(isDone: !todo.isDone);
+                                        _todoService.updateTodo(
+                                            todoId, updateTodo);
+                                      },
+                                    ),
+                                    onLongPress: () {
+                                      _todoService.deleteTodo(todoId);
                                     },
                                   ),
-                                  onLongPress: () {
-                                    _todoService.deleteTodo(todoId);
-                                  },
                                 ),
-                              ),
-                            );
-                          },
-                        );
+                              );
+                            },
+                          );
+                        }
                       },
                     ),
                   ),

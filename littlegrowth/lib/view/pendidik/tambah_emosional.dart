@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:littlegrowth/utils/hex_to_color.dart';
 
@@ -16,8 +18,8 @@ class LaporanEmosional extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                  'Perkembangan Anak',
-              style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                'Perkembangan Anak',
+                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 16),
               Text('Deskripsi'),
@@ -50,23 +52,20 @@ class LaporanEmosional extends StatelessWidget {
               SizedBox(height: 20),
               Text('Tumbuh Kembang Anak'),
               SizedBox(height: 8),
-          
               Row(
                 children: List.generate(5, (index) {
                   return IconButton(
                     icon: Icon(Icons.star_border),
-                      onPressed: () {
-                        //handle star
-                      },
+                    onPressed: () {
+                      //handle star
+                    },
                   );
                 }),
               ),
               SizedBox(height: 16),
               Center(
                 child: ElevatedButton(
-                  onPressed: (){
-          
-                  },
+                  onPressed: () {},
                   child: Text('Simpan'),
                 ),
               )

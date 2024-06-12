@@ -7,16 +7,19 @@ class Murid {
   String nik;
   String role;
   String username;
+  String createdBy;
 
-  Murid(
-      {required this.email,
-      required this.password,
-      required this.namaLengkap,
-      required this.jenisKelamin,
-      required this.birthday,
-      required this.nik,
-      required this.role,
-      required this.username});
+  Murid({
+    required this.createdBy,
+    required this.email,
+    required this.password,
+    required this.namaLengkap,
+    required this.jenisKelamin,
+    required this.birthday,
+    required this.nik,
+    required this.role,
+    required this.username,
+  });
 
   Murid.fromJson(Map<String, Object?> json)
       : this(
@@ -28,6 +31,7 @@ class Murid {
           nik: json['nik']! as String,
           role: json['role']! as String,
           username: json['username']! as String,
+          createdBy: json['createdBy']! as String,
         );
 
   Murid copyWith(
@@ -38,7 +42,8 @@ class Murid {
       String? birthday,
       String? nik,
       String? role,
-      String? username}) {
+      String? username,
+      String? createdBy}) {
     return Murid(
       email: email ?? this.email,
       password: password ?? this.password,
@@ -48,6 +53,7 @@ class Murid {
       nik: nik ?? this.nik,
       role: role ?? this.role,
       username: username ?? this.username,
+      createdBy: createdBy ?? this.createdBy,
     );
   }
 
@@ -61,6 +67,7 @@ class Murid {
       'nik': nik,
       'role': role,
       'username': username,
+      'createdBy': createdBy,
     };
   }
 }

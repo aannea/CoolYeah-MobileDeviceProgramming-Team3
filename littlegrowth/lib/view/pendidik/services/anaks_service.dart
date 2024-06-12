@@ -1,13 +1,16 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:littlegrowth/auth_service.dart';
+import 'package:flutter/material.dart';
 import 'package:littlegrowth/view/pendidik/models/pendidik_anaks.dart';
 
-class AnakService {
+class AnakService extends ChangeNotifier {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-  final AuthService _authService = AuthService();
   late final CollectionReference<Murid> _muridsRef;
+
+  AnakService() {
+    muridService();
+  }
 
   muridService() {
     _muridsRef = _firestore.collection('murids').withConverter<Murid>(
@@ -29,13 +32,17 @@ class AnakService {
     required String username,
   }) async {
     try {
+      // Create user using FirebaseAuth
       UserCredential userCredential =
           await _auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
 
-      await _firestore.collection('murids').doc(userCredential.user?.uid).set({
+      String uid = userCredential.user?.uid ?? ''; // Get the user ID
+
+      // Save user data in Firestore
+      await _firestore.collection('murids').doc(uid).set({
         'email': email,
         'nama_lengkap': namaLengkap,
         'username': username,
@@ -45,8 +52,9 @@ class AnakService {
         'role': role,
       });
 
-      await _firestore.collection('users').doc(userCredential.user?.uid).set({
-        'id': userCredential.user?.uid.toString(),
+      // Save user data in users collection
+      await _firestore.collection('users').doc(uid).set({
+        'id': uid,
         'email': email,
         'role': role,
       });
@@ -54,12 +62,12 @@ class AnakService {
       // Create subcollections for laporan_akademik and laporan_fisik
       await _firestore
           .collection('murids')
-          .doc(userCredential.user?.uid)
+          .doc(uid)
           .collection('laporan_akademik')
           .add({});
       await _firestore
           .collection('murids')
-          .doc(userCredential.user?.uid)
+          .doc(uid)
           .collection('laporan_fisik')
           .add({});
     } catch (e) {
@@ -126,16 +134,6 @@ class AnakService {
       if (user?.uid == id) {
         // Delete the user account from Firebase Authentication
         await user?.delete();
-      } else {
-        // If the current user is not the same as the one to delete,
-        // sign in as the user to delete their account
-        UserCredential userCredential = await _auth.signInWithEmailAndPassword(
-          email:
-              'user-email-to-delete@example.com', // Replace with the user's email
-          password:
-              'user-password-to-delete', // Replace with the user's password
-        );
-        await userCredential.user?.delete();
       }
     } catch (e) {
       print('Error: $e');
