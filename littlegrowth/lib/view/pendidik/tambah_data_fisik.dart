@@ -8,7 +8,8 @@ class tambahDataFisik extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tambah Data Anak'),
+        title: Text('Tambah Data Anak', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),),
+        centerTitle: true,
         backgroundColor: Colors.cyan,
         leading: IconButton(
           icon: Icon(Icons.arrow_back),

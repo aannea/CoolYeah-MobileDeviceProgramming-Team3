@@ -25,7 +25,8 @@ class _TambahProfilAnakState extends State<TambahProfilAnak> {
       child: Scaffold(
         resizeToAvoidBottomInset: true,
         appBar: AppBar(
-          title: Text('Tambah Data Anak'),
+          title: Text('Tambah Data Anak', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),),
+          centerTitle: true,
           backgroundColor: Colors.cyan,
           leading: IconButton(
             icon: Icon(Icons.arrow_back),
@@ -45,7 +46,7 @@ class _TambahProfilAnakState extends State<TambahProfilAnak> {
                   children: [
                     CircleAvatar(
                       radius: 40,
-                      backgroundImage: AssetImage('images/child.png'),
+                      backgroundImage: AssetImage('images/account.png'),
                     ),
                     SizedBox(height: 10),
                     Text(

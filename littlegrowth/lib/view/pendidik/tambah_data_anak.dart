@@ -12,7 +12,8 @@ class TambahPesertaAnakScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tambah Data Anak'),
+        title: Text('Tambah Data Anak', style: TextStyle(fontWeight: FontWeight.bold),),
+        centerTitle: true,
       ),
       backgroundColor: HexToColor().hexStringToColor("62C9D8"),
       body: Padding(
@@ -35,12 +36,13 @@ class TambahPesertaAnakScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+                    SizedBox(height: 15,),
                     Text(
-                      'Daftar Anak-Anak',
+                      'Daftar Peserta Didik',
                       style:
-                          TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.white),
                     ),
-                    SizedBox(height: 16),
+                    SizedBox(height: 50),
                     // Iterate through the documents and display each one
                     for (var murid in murids)
                       buildMuridListItem(context, murid),

@@ -3,12 +3,12 @@
 import 'package:flutter/material.dart';
 import 'package:littlegrowth/utils/hex_to_color.dart';
 
-class LaporanKeseluruhanAnaksScreen extends StatelessWidget {
+class DetailFisik extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Laporan Perkembangan', style: TextStyle(fontWeight: FontWeight.bold),),
+          title: Text('Laporan Perkembangan Fisik', style: TextStyle(fontWeight: FontWeight.bold),),
           centerTitle: true,
         ),
         backgroundColor: HexToColor().hexStringToColor("62C9D8"),
@@ -20,17 +20,17 @@ class LaporanKeseluruhanAnaksScreen extends StatelessWidget {
                 children: [
                   SizedBox(height: 15,),
                   Row(
-                  children: [
-                    Container(
-                      padding: EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                          color: Color(0xFFFE77373),
-                          borderRadius: BorderRadius.circular(20)
+                    children: [
+                      Container(
+                        padding: EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                            color: Color(0xFFFE77373),
+                            borderRadius: BorderRadius.circular(20)
+                        ),
+                        child: Text(
+                            'Laporan Fisik',
+                            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.white), textAlign: TextAlign.start),
                       ),
-                      child: Text(
-                        'Laporan Fisik',
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.white), textAlign: TextAlign.start),
-                    ),
                     ],
                   ),
                   SizedBox(
@@ -53,7 +53,7 @@ class LaporanKeseluruhanAnaksScreen extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
-                              'Nama',
+                              'Bulan',
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white),
@@ -98,11 +98,11 @@ class LaporanKeseluruhanAnaksScreen extends StatelessWidget {
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Text(
-                                'Bintang',
+                                'Januari',
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     color:
-                                        const Color.fromARGB(255, 91, 144, 235)),
+                                    const Color.fromARGB(255, 235, 91, 139)),
                                 textAlign: TextAlign.center,
                               ),
                             ),
@@ -131,11 +131,11 @@ class LaporanKeseluruhanAnaksScreen extends StatelessWidget {
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Text(
-                                'Aan',
+                                'Februari',
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     color:
-                                        const Color.fromARGB(255, 91, 144, 235)),
+                                    const Color.fromARGB(255, 235, 91, 139)),
                                 textAlign: TextAlign.center,
                               ),
                             ),
@@ -164,11 +164,11 @@ class LaporanKeseluruhanAnaksScreen extends StatelessWidget {
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Text(
-                                'Cia',
+                                'Maret',
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     color:
-                                        const Color.fromARGB(255, 235, 91, 139)),
+                                    const Color.fromARGB(255, 235, 91, 139)),
                                 textAlign: TextAlign.center,
                               ),
                             ),
@@ -197,11 +197,259 @@ class LaporanKeseluruhanAnaksScreen extends StatelessWidget {
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Text(
-                                'Anisa',
+                                'April',
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     color:
-                                        const Color.fromARGB(255, 235, 91, 139)),
+                                    const Color.fromARGB(255, 235, 91, 139)),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                '23kg',
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                '108cm',
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text('90cm'),
+                            ),
+                          ]),
+                      TableRow(
+                          decoration: BoxDecoration(color: Colors.white),
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                'Mei',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color:
+                                    const Color.fromARGB(255, 235, 91, 139)),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                '23kg',
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                '108cm',
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text('90cm'),
+                            ),
+                          ]),
+                      TableRow(
+                          decoration: BoxDecoration(color: Colors.white),
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                'Juni',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color:
+                                    const Color.fromARGB(255, 235, 91, 139)),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                '23kg',
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                '108cm',
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text('90cm'),
+                            ),
+                          ]),
+                      TableRow(
+                          decoration: BoxDecoration(color: Colors.white),
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                'Juli',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color:
+                                    const Color.fromARGB(255, 235, 91, 139)),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                '23kg',
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                '108cm',
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text('90cm'),
+                            ),
+                          ]),
+                      TableRow(
+                          decoration: BoxDecoration(color: Colors.white),
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                'Agustus',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color:
+                                    const Color.fromARGB(255, 235, 91, 139)),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                '23kg',
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                '108cm',
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text('90cm'),
+                            ),
+                          ]),
+                      TableRow(
+                          decoration: BoxDecoration(color: Colors.white),
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                'September',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color:
+                                    const Color.fromARGB(255, 235, 91, 139)),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                '23kg',
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                '108cm',
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text('90cm'),
+                            ),
+                          ]),
+                      TableRow(
+                          decoration: BoxDecoration(color: Colors.white),
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                'Oktober',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color:
+                                    const Color.fromARGB(255, 235, 91, 139)),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                '23kg',
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                '108cm',
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text('90cm'),
+                            ),
+                          ]),
+                      TableRow(
+                          decoration: BoxDecoration(color: Colors.white),
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                'November',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color:
+                                    const Color.fromARGB(255, 235, 91, 139)),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                '23kg',
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                '108cm',
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text('90cm'),
+                            ),
+                          ]),
+                      TableRow(
+                          decoration: BoxDecoration(color: Colors.white),
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                'Desember',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color:
+                                    const Color.fromARGB(255, 235, 91, 139)),
                                 textAlign: TextAlign.center,
                               ),
                             ),
@@ -224,249 +472,7 @@ class LaporanKeseluruhanAnaksScreen extends StatelessWidget {
                           ]),
                     ],
                   ),
-              
-                  //LAPORAN AKADEMIK
-                  SizedBox(height: 30),
-                  Row(
-                  children: [
-                    Container(
-                      padding: EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                          color: Color(0xFFF229AC6),
-                          borderRadius: BorderRadius.circular(20)
-                      ),
-                      child: Text(
-                        'Laporan Akademik',
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.white), textAlign: TextAlign.start),
-                    ),
-                    ],
-                  ),
-                  SizedBox(height: 16),
-                  Table(
-                    border: TableBorder.all(),
-                    columnWidths: {
-                      0: FlexColumnWidth(1),
-                      1: FlexColumnWidth(1),
-                      2: FlexColumnWidth(1),
-                      3: FlexColumnWidth(1),
-                      4: FlexColumnWidth(1),
-                    },
-                    children: [
-                      TableRow(
-                        decoration: BoxDecoration(
-                            color: const Color(0xFFF229AC6)),
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              'Nama',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              'Kognitif',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              'Motorik',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              'Emosional',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              'Sosial',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                        ],
-                      ),
-                      TableRow(
-                          decoration: BoxDecoration(color: Colors.white),
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                'Bintang',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color:
-                                        const Color.fromARGB(255, 91, 144, 235)),
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-                              style: TextStyle(fontSize: 12),),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-                              style: TextStyle(fontSize: 12),),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-                              style: TextStyle(fontSize: 12),),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-                              style: TextStyle(fontSize: 12),),
-                            ),
-                          ]),
-                      TableRow(
-                          decoration: BoxDecoration(color: Colors.white),
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                'Aan',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color:
-                                        const Color.fromARGB(255, 91, 144, 235)),
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-                              style: TextStyle(fontSize: 12),),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-                              style: TextStyle(fontSize: 12),),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-                              style: TextStyle(fontSize: 12),),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-                              style: TextStyle(fontSize: 12),),
-                            ),
-                          ]),
-                      TableRow(
-                          decoration: BoxDecoration(color: Colors.white),
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                'Cia',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color:
-                                        const Color.fromARGB(255, 235, 91, 139)),
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-                              style: TextStyle(fontSize: 12),),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-                              style: TextStyle(fontSize: 12),),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-                              style: TextStyle(fontSize: 12),),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-                              style: TextStyle(fontSize: 12),),
-                            ),
-                          ]),
-              
-                      TableRow(
-                          decoration: BoxDecoration(color: Colors.white),
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                'Anisa',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color:
-                                        const Color.fromARGB(255, 235, 91, 139)),
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-                              style: TextStyle(fontSize: 12),),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-                              style: TextStyle(fontSize: 12),),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-                              style: TextStyle(fontSize: 12),),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-                              style: TextStyle(fontSize: 12),),
-                            ),
-                          ]),
-                    ],
-                  ),
+
                   SizedBox(
                     height: 100,
                   ),

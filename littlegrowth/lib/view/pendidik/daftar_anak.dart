@@ -13,7 +13,8 @@ class DaftarAnak extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tambah Data Anak'),
+        title: Text('Tambah Laporan Anak', style: TextStyle(fontWeight: FontWeight.bold),),
+        centerTitle: true,
       ),
       backgroundColor: HexToColor().hexStringToColor("62C9D8"),
       body: Padding(
@@ -36,10 +37,11 @@ class DaftarAnak extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+                    SizedBox(height: 20,),
                     Text(
                       'Daftar Anak-Anak',
                       style:
-                          TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.white),
                     ),
                     SizedBox(height: 16),
                     // Iterate through the documents and display each one
