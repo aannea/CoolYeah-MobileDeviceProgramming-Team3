@@ -27,6 +27,12 @@ class LaporanFisikService {
     required Timestamp date,
   }) async {
     try {
+      // Create subcollections for laporan_akademik
+      await _firestore
+          .collection('murids')
+          .doc(muridId)
+          .collection('laporan_fisik')
+          .add({});
       String id = _firestore.collection('murids').doc().id;
       LaporanFisiksAnak laporanFisik = LaporanFisiksAnak(
         id: id,
@@ -35,6 +41,13 @@ class LaporanFisikService {
         lingkarKepala: lingkarKepala,
         date: date,
       );
+
+      // Save user data in users collection
+      // await _firestore.collection('users').doc(uid).set({
+      //   'id': uid,
+      //   'email': email,
+      //   'role': role,
+      // });
 
       await _getLaporanFisikCollection(muridId).doc(id).set(laporanFisik);
     } catch (e) {

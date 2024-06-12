@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -58,18 +60,6 @@ class AnakService extends ChangeNotifier {
         'email': email,
         'role': role,
       });
-
-      // Create subcollections for laporan_akademik and laporan_fisik
-      await _firestore
-          .collection('murids')
-          .doc(uid)
-          .collection('laporan_akademik')
-          .add({});
-      await _firestore
-          .collection('murids')
-          .doc(uid)
-          .collection('laporan_fisik')
-          .add({});
     } catch (e) {
       print('Error: $e');
     }
@@ -119,22 +109,71 @@ class AnakService extends ChangeNotifier {
     }
   }
 
-  Future<void> deleteMurid(String id) async {
+  Future<void> deleteMurid(String muridId) async {
     try {
+      // Delete sub-collections first
+      await deleteSubCollections('murids', muridId, 'laporan_akademik');
+      await deleteSubCollections('murids', muridId, 'laporan_fisik');
+
       // Delete the murid document
-      await _firestore.collection('murids').doc(id).delete();
+      await _firestore.collection('murids').doc(muridId).delete();
 
       // Delete the user document
-      await _firestore.collection('users').doc(id).delete();
+      await _firestore.collection('users').doc(muridId).delete();
 
       // Get the user credentials
       User? user = _auth.currentUser;
 
       // Re-authenticate if necessary
-      if (user?.uid == id) {
+      if (user?.uid == muridId) {
         // Delete the user account from Firebase Authentication
         await user?.delete();
+        // await FirebaseAuth.instance.currentUser!.delete();
       }
+    } on FirebaseAuthException catch (e) {
+      log('catch $e');
+
+      if (e.code == "requires-recent-login") {
+        await _reauthenticateAndDelete();
+      }
+    } catch (e) {
+      print('Error: $e');
+    }
+  }
+
+  Future<void> deleteSubCollections(
+    String collectionPath,
+    String docId,
+    String subCollectionName,
+  ) async {
+    try {
+      QuerySnapshot subCollectionSnapshot = await _firestore
+          .collection(collectionPath)
+          .doc(docId)
+          .collection(subCollectionName)
+          .get();
+
+      for (DocumentSnapshot subDoc in subCollectionSnapshot.docs) {
+        await subDoc.reference.delete();
+      }
+    } catch (e) {
+      print('Error deleting sub-collection: $e');
+    }
+  }
+
+  Future<void> _reauthenticateAndDelete() async {
+    try {
+      final providerData = _auth.currentUser?.providerData.first;
+
+      if (AppleAuthProvider().providerId == providerData!.providerId) {
+        await _auth.currentUser!
+            .reauthenticateWithProvider(AppleAuthProvider());
+      } else if (GoogleAuthProvider().providerId == providerData.providerId) {
+        await _auth.currentUser!
+            .reauthenticateWithProvider(GoogleAuthProvider());
+      }
+
+      await _auth.currentUser?.delete();
     } catch (e) {
       print('Error: $e');
     }

@@ -31,6 +31,13 @@ class LaporanAkademikService {
     String? sosialRekomendasi,
   }) async {
     try {
+      // Create subcollections for laporan_akademik
+      await _firestore
+          .collection('murids')
+          .doc(muridId)
+          .collection('laporan_akademik')
+          .add({});
+
       String id = _firestore.collection('murids').doc().id;
       LaporanAkademiksAnak laporanAkademik = LaporanAkademiksAnak(
         id: id,
