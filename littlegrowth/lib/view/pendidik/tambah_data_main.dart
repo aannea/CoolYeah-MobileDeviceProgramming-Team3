@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:littlegrowth/utils/hex_to_color.dart';
 import 'package:littlegrowth/view/pendidik/models/pendidik_anaks.dart';
+import 'package:littlegrowth/view/pendidik/tambah_sosial.dart';
 import 'tambah_emosional.dart';
 import 'tambah_kognitif.dart';
 import 'tambah_motorik.dart';
@@ -25,27 +26,32 @@ class TambahDataAnakMainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tambah Data Anaks'),
+        title: Text(
+            'Tambah Laporan',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        centerTitle: true,
       ),
-      backgroundColor: HexToColor().hexStringToColor("62C9D8"),
+      backgroundColor: HexToColor().hexStringToColor("FFFFFF"),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            SizedBox(height: 30,),
             Text(
               'Laporan Fisik',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 16),
             Row(
               children: [
                 Expanded(
                     child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(16),
-                  ),
+                      decoration: BoxDecoration(
+                        color: Color(0xFFF62C9D8).withOpacity(0.4),
+                        borderRadius: BorderRadius.circular(16),
+                      ),
                   child: Padding(
                     padding: const EdgeInsets.all(10),
                     child: Row(
@@ -99,9 +105,10 @@ class TambahDataAnakMainScreen extends StatelessWidget {
                         );
                       },
                       child: Container(
-                        height: 80,
+                        height: 80, width: 70,
+                        padding: EdgeInsets.all(5),
                         decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: Color(0xFFF62C9D8),
                             borderRadius: BorderRadius.circular(15)),
                         child: Column(
                           children: [
@@ -109,25 +116,25 @@ class TambahDataAnakMainScreen extends StatelessWidget {
                               child: Text(
                                 'Jan',
                                 style: TextStyle(
-                                    fontSize: 14, fontWeight: FontWeight.bold),
+                                    fontSize: 14, fontWeight: FontWeight.bold, color: Colors.white),
                               ),
                             ),
                             Center(
                               child: Text(
                                 'TB : 100cm',
-                                style: TextStyle(fontSize: 10),
+                                style: TextStyle(fontSize: 10, color: Colors.white),
                               ),
                             ),
                             Center(
                               child: Text(
                                 'BB : 25kg',
-                                style: TextStyle(fontSize: 10),
+                                style: TextStyle(fontSize: 10, color: Colors.white),
                               ),
                             ),
                             Center(
                               child: Text(
                                 'LK : 90cm',
-                                style: TextStyle(fontSize: 10),
+                                style: TextStyle(fontSize: 10, color: Colors.white),
                               ),
                             )
                           ],
@@ -148,9 +155,10 @@ class TambahDataAnakMainScreen extends StatelessWidget {
                         );
                       },
                       child: Container(
-                        height: 80,
+                        height: 80, width: 70,
+                        padding: EdgeInsets.all(5),
                         decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: Color(0xFFFF59999),
                             borderRadius: BorderRadius.circular(15)),
                         child: Column(
                           children: [
@@ -158,25 +166,25 @@ class TambahDataAnakMainScreen extends StatelessWidget {
                               child: Text(
                                 'Feb',
                                 style: TextStyle(
-                                    fontSize: 14, fontWeight: FontWeight.bold),
+                                    fontSize: 14, fontWeight: FontWeight.bold, color: Colors.white),
                               ),
                             ),
                             Center(
                               child: Text(
                                 'TB : 100cm',
-                                style: TextStyle(fontSize: 10),
+                                style: TextStyle(fontSize: 10, color: Colors.white),
                               ),
                             ),
                             Center(
                               child: Text(
                                 'BB : 25kg',
-                                style: TextStyle(fontSize: 10),
+                                style: TextStyle(fontSize: 10, color: Colors.white),
                               ),
                             ),
                             Center(
                               child: Text(
                                 'LK : 90cm',
-                                style: TextStyle(fontSize: 10),
+                                style: TextStyle(fontSize: 10, color: Colors.white),
                               ),
                             )
                           ],
@@ -197,9 +205,10 @@ class TambahDataAnakMainScreen extends StatelessWidget {
                         );
                       },
                       child: Container(
-                        height: 80,
+                        height: 80, width: 70,
+                        padding: EdgeInsets.all(5),
                         decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: Color(0xFFF62C9D8),
                             borderRadius: BorderRadius.circular(15)),
                         child: Column(
                           children: [
@@ -207,25 +216,25 @@ class TambahDataAnakMainScreen extends StatelessWidget {
                               child: Text(
                                 'Mar',
                                 style: TextStyle(
-                                    fontSize: 14, fontWeight: FontWeight.bold),
+                                    fontSize: 14, fontWeight: FontWeight.bold, color: Colors.white),
                               ),
                             ),
                             Center(
                               child: Text(
                                 'TB : 100cm',
-                                style: TextStyle(fontSize: 10),
+                                style: TextStyle(fontSize: 10, color: Colors.white),
                               ),
                             ),
                             Center(
                               child: Text(
                                 'BB : 25kg',
-                                style: TextStyle(fontSize: 10),
+                                style: TextStyle(fontSize: 10, color: Colors.white),
                               ),
                             ),
                             Center(
                               child: Text(
                                 'LK : 90cm',
-                                style: TextStyle(fontSize: 10),
+                                style: TextStyle(fontSize: 10, color: Colors.white),
                               ),
                             )
                           ],
@@ -246,9 +255,10 @@ class TambahDataAnakMainScreen extends StatelessWidget {
                         );
                       },
                       child: Container(
-                        height: 80,
+                        height: 80, width: 70,
+                        padding: EdgeInsets.all(5),
                         decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: Color(0xFFFF59999),
                             borderRadius: BorderRadius.circular(15)),
                         child: Column(
                           children: [
@@ -256,25 +266,25 @@ class TambahDataAnakMainScreen extends StatelessWidget {
                               child: Text(
                                 'Apr',
                                 style: TextStyle(
-                                    fontSize: 14, fontWeight: FontWeight.bold),
+                                    fontSize: 14, fontWeight: FontWeight.bold, color: Colors.white),
                               ),
                             ),
                             Center(
                               child: Text(
                                 'TB : 100cm',
-                                style: TextStyle(fontSize: 10),
+                                style: TextStyle(fontSize: 10, color: Colors.white),
                               ),
                             ),
                             Center(
                               child: Text(
                                 'BB : 25kg',
-                                style: TextStyle(fontSize: 10),
+                                style: TextStyle(fontSize: 10, color: Colors.white),
                               ),
                             ),
                             Center(
                               child: Text(
                                 'LK : 90cm',
-                                style: TextStyle(fontSize: 10),
+                                style: TextStyle(fontSize: 10, color: Colors.white),
                               ),
                             )
                           ],
@@ -295,9 +305,10 @@ class TambahDataAnakMainScreen extends StatelessWidget {
                         );
                       },
                       child: Container(
-                        height: 80,
+                        height: 80, width: 70,
+                        padding: EdgeInsets.all(5),
                         decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: Color(0xFFF62C9D8),
                             borderRadius: BorderRadius.circular(15)),
                         child: Column(
                           children: [
@@ -305,25 +316,25 @@ class TambahDataAnakMainScreen extends StatelessWidget {
                               child: Text(
                                 'Mei',
                                 style: TextStyle(
-                                    fontSize: 14, fontWeight: FontWeight.bold),
+                                    fontSize: 14, fontWeight: FontWeight.bold, color: Colors.white),
                               ),
                             ),
                             Center(
                               child: Text(
                                 'TB : 100cm',
-                                style: TextStyle(fontSize: 10),
+                                style: TextStyle(fontSize: 10, color: Colors.white),
                               ),
                             ),
                             Center(
                               child: Text(
                                 'BB : 25kg',
-                                style: TextStyle(fontSize: 10),
+                                style: TextStyle(fontSize: 10, color: Colors.white),
                               ),
                             ),
                             Center(
                               child: Text(
                                 'LK : 90cm',
-                                style: TextStyle(fontSize: 10),
+                                style: TextStyle(fontSize: 10, color: Colors.white),
                               ),
                             )
                           ],
@@ -344,9 +355,10 @@ class TambahDataAnakMainScreen extends StatelessWidget {
                         );
                       },
                       child: Container(
-                        height: 80,
+                        height: 80, width: 70,
+                        padding: EdgeInsets.all(5),
                         decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: Color(0xFFFF59999),
                             borderRadius: BorderRadius.circular(15)),
                         child: Column(
                           children: [
@@ -354,25 +366,25 @@ class TambahDataAnakMainScreen extends StatelessWidget {
                               child: Text(
                                 'Jun',
                                 style: TextStyle(
-                                    fontSize: 14, fontWeight: FontWeight.bold),
+                                    fontSize: 14, fontWeight: FontWeight.bold, color: Colors.white),
                               ),
                             ),
                             Center(
                               child: Text(
                                 'TB : 100cm',
-                                style: TextStyle(fontSize: 10),
+                                style: TextStyle(fontSize: 10, color: Colors.white),
                               ),
                             ),
                             Center(
                               child: Text(
                                 'BB : 25kg',
-                                style: TextStyle(fontSize: 10),
+                                style: TextStyle(fontSize: 10, color: Colors.white),
                               ),
                             ),
                             Center(
                               child: Text(
                                 'LK : 90cm',
-                                style: TextStyle(fontSize: 10),
+                                style: TextStyle(fontSize: 10, color: Colors.white),
                               ),
                             )
                           ],
@@ -393,9 +405,10 @@ class TambahDataAnakMainScreen extends StatelessWidget {
                         );
                       },
                       child: Container(
-                        height: 80,
+                        height: 80, width: 70,
+                        padding: EdgeInsets.all(5),
                         decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: Color(0xFFF62C9D8),
                             borderRadius: BorderRadius.circular(15)),
                         child: Column(
                           children: [
@@ -403,25 +416,25 @@ class TambahDataAnakMainScreen extends StatelessWidget {
                               child: Text(
                                 'Jul',
                                 style: TextStyle(
-                                    fontSize: 14, fontWeight: FontWeight.bold),
+                                    fontSize: 14, fontWeight: FontWeight.bold, color: Colors.white),
                               ),
                             ),
                             Center(
                               child: Text(
                                 'TB : 100cm',
-                                style: TextStyle(fontSize: 10),
+                                style: TextStyle(fontSize: 10, color: Colors.white),
                               ),
                             ),
                             Center(
                               child: Text(
                                 'BB : 25kg',
-                                style: TextStyle(fontSize: 10),
+                                style: TextStyle(fontSize: 10, color: Colors.white),
                               ),
                             ),
                             Center(
                               child: Text(
                                 'LK : 90cm',
-                                style: TextStyle(fontSize: 10),
+                                style: TextStyle(fontSize: 10, color: Colors.white),
                               ),
                             )
                           ],
@@ -442,9 +455,10 @@ class TambahDataAnakMainScreen extends StatelessWidget {
                         );
                       },
                       child: Container(
-                        height: 80,
+                        height: 80, width: 70,
+                        padding: EdgeInsets.all(5),
                         decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: Color(0xFFFF59999),
                             borderRadius: BorderRadius.circular(15)),
                         child: Column(
                           children: [
@@ -452,25 +466,25 @@ class TambahDataAnakMainScreen extends StatelessWidget {
                               child: Text(
                                 'Ags',
                                 style: TextStyle(
-                                    fontSize: 14, fontWeight: FontWeight.bold),
+                                    fontSize: 14, fontWeight: FontWeight.bold, color: Colors.white),
                               ),
                             ),
                             Center(
                               child: Text(
                                 'TB : 100cm',
-                                style: TextStyle(fontSize: 10),
+                                style: TextStyle(fontSize: 10, color: Colors.white),
                               ),
                             ),
                             Center(
                               child: Text(
                                 'BB : 25kg',
-                                style: TextStyle(fontSize: 10),
+                                style: TextStyle(fontSize: 10, color: Colors.white),
                               ),
                             ),
                             Center(
                               child: Text(
                                 'LK : 90cm',
-                                style: TextStyle(fontSize: 10),
+                                style: TextStyle(fontSize: 10, color: Colors.white),
                               ),
                             )
                           ],
@@ -491,9 +505,10 @@ class TambahDataAnakMainScreen extends StatelessWidget {
                         );
                       },
                       child: Container(
-                        height: 80,
+                        height: 80, width: 70,
+                        padding: EdgeInsets.all(5),
                         decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: Color(0xFFF62C9D8),
                             borderRadius: BorderRadius.circular(15)),
                         child: Column(
                           children: [
@@ -501,25 +516,25 @@ class TambahDataAnakMainScreen extends StatelessWidget {
                               child: Text(
                                 'Sep',
                                 style: TextStyle(
-                                    fontSize: 14, fontWeight: FontWeight.bold),
+                                    fontSize: 14, fontWeight: FontWeight.bold, color: Colors.white),
                               ),
                             ),
                             Center(
                               child: Text(
                                 'TB : 100cm',
-                                style: TextStyle(fontSize: 10),
+                                style: TextStyle(fontSize: 10, color: Colors.white),
                               ),
                             ),
                             Center(
                               child: Text(
                                 'BB : 25kg',
-                                style: TextStyle(fontSize: 10),
+                                style: TextStyle(fontSize: 10, color: Colors.white),
                               ),
                             ),
                             Center(
                               child: Text(
                                 'LK : 90cm',
-                                style: TextStyle(fontSize: 10),
+                                style: TextStyle(fontSize: 10, color: Colors.white),
                               ),
                             )
                           ],
@@ -540,9 +555,10 @@ class TambahDataAnakMainScreen extends StatelessWidget {
                         );
                       },
                       child: Container(
-                        height: 80,
+                        height: 80, width: 70,
+                        padding: EdgeInsets.all(5),
                         decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: Color(0xFFFF59999),
                             borderRadius: BorderRadius.circular(15)),
                         child: Column(
                           children: [
@@ -550,25 +566,25 @@ class TambahDataAnakMainScreen extends StatelessWidget {
                               child: Text(
                                 'Okt',
                                 style: TextStyle(
-                                    fontSize: 14, fontWeight: FontWeight.bold),
+                                    fontSize: 14, fontWeight: FontWeight.bold, color: Colors.white),
                               ),
                             ),
                             Center(
                               child: Text(
                                 'TB : 100cm',
-                                style: TextStyle(fontSize: 10),
+                                style: TextStyle(fontSize: 10, color: Colors.white),
                               ),
                             ),
                             Center(
                               child: Text(
                                 'BB : 25kg',
-                                style: TextStyle(fontSize: 10),
+                                style: TextStyle(fontSize: 10, color: Colors.white),
                               ),
                             ),
                             Center(
                               child: Text(
                                 'LK : 90cm',
-                                style: TextStyle(fontSize: 10),
+                                style: TextStyle(fontSize: 10, color: Colors.white),
                               ),
                             )
                           ],
@@ -589,9 +605,10 @@ class TambahDataAnakMainScreen extends StatelessWidget {
                         );
                       },
                       child: Container(
-                        height: 80,
+                        height: 80, width: 70,
+                        padding: EdgeInsets.all(5),
                         decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: Color(0xFFF62C9D8),
                             borderRadius: BorderRadius.circular(15)),
                         child: Column(
                           children: [
@@ -599,25 +616,25 @@ class TambahDataAnakMainScreen extends StatelessWidget {
                               child: Text(
                                 'Nov',
                                 style: TextStyle(
-                                    fontSize: 14, fontWeight: FontWeight.bold),
+                                    fontSize: 14, fontWeight: FontWeight.bold, color: Colors.white),
                               ),
                             ),
                             Center(
                               child: Text(
                                 'TB : 100cm',
-                                style: TextStyle(fontSize: 10),
+                                style: TextStyle(fontSize: 10, color: Colors.white),
                               ),
                             ),
                             Center(
                               child: Text(
                                 'BB : 25kg',
-                                style: TextStyle(fontSize: 10),
+                                style: TextStyle(fontSize: 10, color: Colors.white),
                               ),
                             ),
                             Center(
                               child: Text(
                                 'LK : 90cm',
-                                style: TextStyle(fontSize: 10),
+                                style: TextStyle(fontSize: 10, color: Colors.white),
                               ),
                             )
                           ],
@@ -638,9 +655,10 @@ class TambahDataAnakMainScreen extends StatelessWidget {
                         );
                       },
                       child: Container(
-                        height: 80,
+                        height: 80, width: 70,
+                        padding: EdgeInsets.all(5),
                         decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: Color(0xFFFF59999),
                             borderRadius: BorderRadius.circular(15)),
                         child: Column(
                           children: [
@@ -648,25 +666,25 @@ class TambahDataAnakMainScreen extends StatelessWidget {
                               child: Text(
                                 'Des',
                                 style: TextStyle(
-                                    fontSize: 14, fontWeight: FontWeight.bold),
+                                    fontSize: 14, fontWeight: FontWeight.bold, color: Colors.white),
                               ),
                             ),
                             Center(
                               child: Text(
                                 'TB : 100cm',
-                                style: TextStyle(fontSize: 10),
+                                style: TextStyle(fontSize: 10, color: Colors.white),
                               ),
                             ),
                             Center(
                               child: Text(
                                 'BB : 25kg',
-                                style: TextStyle(fontSize: 10),
+                                style: TextStyle(fontSize: 10, color: Colors.white),
                               ),
                             ),
                             Center(
                               child: Text(
                                 'LK : 90cm',
-                                style: TextStyle(fontSize: 10),
+                                style: TextStyle(fontSize: 10, color: Colors.white),
                               ),
                             )
                           ],
@@ -680,12 +698,14 @@ class TambahDataAnakMainScreen extends StatelessWidget {
                 ],
               ),
             ),
+
+            //LAPORAN AKADEMIK
             SizedBox(
-              height: 20,
+              height: 50,
             ),
             Text(
               'Laporan Akademik',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
             ),
             SizedBox(
               height: 20,
@@ -799,7 +819,7 @@ class TambahDataAnakMainScreen extends StatelessWidget {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => LaporanMotorik()),
+                      MaterialPageRoute(builder: (context) => LaporanSosial()),
                     );
                   },
                   child: Container(

@@ -7,7 +7,7 @@ import 'package:littlegrowth/view/pendidik/models/pendidik_anaks.dart';
 import 'package:littlegrowth/view/pendidik/services/anaks_service.dart';
 import 'package:provider/provider.dart';
 
-class EditProfil extends StatelessWidget {
+class EditProfil extends StatelessWidget{
   final QueryDocumentSnapshot<Murid> murid;
 
   EditProfil({super.key, required this.murid}) {
@@ -24,7 +24,6 @@ class EditProfil extends StatelessWidget {
   final TextEditingController birthdateController = TextEditingController();
   final TextEditingController genderController = TextEditingController();
   final TextEditingController usernameController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
 
   void updateDataMurid(BuildContext context) async {
     try {
@@ -75,89 +74,117 @@ class EditProfil extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Edit Peserta Didik'),
+        title: Text('Edit Peserta Didik', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),),
+        centerTitle: true,
+        backgroundColor: HexToColor().hexStringToColor("62C9D8"),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
+            // Handle back button press
             Navigator.pop(context);
           },
         ),
       ),
-      backgroundColor: HexToColor().hexStringToColor("62C9D8"),
+
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            CircleAvatar(
-              radius: 40,
-              backgroundImage: AssetImage(
-                  'images/child.png'), // Replace with your asset image
-              child: Align(
-                alignment: Alignment.bottomRight,
-                child: Icon(
-                  Icons.edit,
-                  color: Colors.white,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              CircleAvatar(
+                radius: 40,
+                backgroundImage: AssetImage('images/account.png'), // Replace with your asset image
+                child: Align(
+                  alignment: Alignment.bottomRight,
+                  child: Icon(
+                    Icons.edit,
+                    color: Colors.white,
+                  ),
                 ),
               ),
-            ),
-            SizedBox(height: 16),
-            TextField(
-              controller: nameController,
-              decoration: InputDecoration(
-                labelText: 'Nama',
+              SizedBox(height: 16),
+              buildBoxedTextField('Nama', nameController),
+              buildBoxedTextField('Nomor Induk Kependudukan', idController),
+              buildBoxedTextField('Tanggal Lahir', birthdateController),
+              buildBoxedTextField('Jenis Kelamin', genderController),
+              buildBoxedTextField('Username', usernameController),
+              SizedBox(height: 20),
+              Center(
+                child: ElevatedButton(
+                  onPressed: () {
+                    updateDataMurid(context);
+                  },
+                  style: ElevatedButton.styleFrom(
+                    padding:
+                    EdgeInsets.symmetric(horizontal: 100, vertical: 15),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Simpan Data Baru',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: Color(0xFFF229AC6)),
+                      ),
+                      SizedBox(width: 8), // Spasi antara teks dan ikon
+                    ],
+                  ),
+                ),
               ),
-            ),
-            TextField(
-              controller: idController,
-              decoration: InputDecoration(
-                labelText: 'Nomor Induk Kependudukan',
+              SizedBox(height: 20,),
+              Center(
+                child: ElevatedButton(
+                  onPressed: () {
+                    // Handle delete button press
+                    deleteDataMurid(context);
+                  },
+                  style: ElevatedButton.styleFrom(
+                    padding:
+                    EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Hapus Anak',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 12,
+                            color: Color(0xFFFE35252)),
+                      ),
+                      SizedBox(width: 8), // Spasi antara teks dan ikon
+                    ],
+                  ),
+                ),
               ),
-              keyboardType: TextInputType.number,
-            ),
-            TextField(
-              controller: birthdateController,
-              decoration: InputDecoration(
-                labelText: 'Tanggal Lahir',
-              ),
-            ),
-            TextField(
-              controller: genderController,
-              decoration: InputDecoration(
-                labelText: 'Jenis Kelamin',
-              ),
-            ),
-            TextField(
-              controller: usernameController,
-              decoration: InputDecoration(
-                labelText: 'Username',
-              ),
-            ),
-            TextField(
-              controller: TextEditingController(text: '123456'),
-              decoration: InputDecoration(
-                labelText: 'Password',
-              ),
-              obscureText: true,
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                updateDataMurid(context);
-              },
-              child: Text('Simpan Data Terbaru'),
-            ),
-            TextButton(
-              onPressed: () {
-                deleteDataMurid(context);
-              },
-              child: Text(
-                'Hapus Anak',
-                style: TextStyle(color: Colors.red),
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
   }
+
+  Widget buildBoxedTextField(String labelText, TextEditingController controller, [TextInputType keyboardType = TextInputType.text, bool obscureText = false]) {
+    return Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8.0),
+        child: TextField(
+            controller: controller,
+            decoration: InputDecoration(
+              labelText: labelText,
+              border: OutlineInputBorder(),
+              contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0), // Adjust padding
+            ),
+            keyboardType: keyboardType,
+            obscureText: obscureText,
+            ),
+        );
+    }
 }

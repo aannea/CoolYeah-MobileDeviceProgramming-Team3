@@ -12,7 +12,8 @@ class AkunWaliMuridScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Profile Account'),
+        title: Text('Profile Account', style: TextStyle(fontWeight: FontWeight.bold),),
+        centerTitle: true,
       ),
       backgroundColor: HexToColor().hexStringToColor("62C9D8"),
       body: Center(
@@ -26,13 +27,13 @@ class AkunWaliMuridScreen extends StatelessWidget {
                 CircleAvatar(
                   radius: 50,
                   backgroundImage:
-                      AssetImage('./../images/pendidik_profile.png'),
+                      AssetImage('./../images/account.png'),
                 ),
                 SizedBox(
                   height: 20,
                 ),
                 Text(
-                  'Hani',
+                  'mia',
                   style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -62,7 +63,7 @@ class AkunWaliMuridScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(5.0),
                   ),
                   child: Text(
-                    'Siti Hanifah S.PD.AUD',
+                    'Miaaa',
                     style: TextStyle(fontSize: 16),
                   ),
                 ),
@@ -90,7 +91,7 @@ class AkunWaliMuridScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(5.0),
                   ),
                   child: Text(
-                    'sitihanifah123@gmail.com',
+                    'mia@gmail.com',
                     style: TextStyle(fontSize: 16),
                   ),
                 ),
@@ -118,7 +119,7 @@ class AkunWaliMuridScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(5.0),
                   ),
                   child: Text(
-                    'Guru Kelas A',
+                    'Murid Kelas A',
                     style: TextStyle(fontSize: 16),
                   ),
                 ),
@@ -130,10 +131,13 @@ class AkunWaliMuridScreen extends StatelessWidget {
                     //logika sign out
                     await authService.logout();
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('Anda telah keluar.')),
+                      SnackBar(content: Text('Anda telah keluar.',)),
                     );
                   },
-                  child: Text('Sign Out'),
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(Color(0xFFFE35252),)
+                  ),
+                  child: Text('Sign Out', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 14),),
                 ),
                 SizedBox(
                   height: 100,

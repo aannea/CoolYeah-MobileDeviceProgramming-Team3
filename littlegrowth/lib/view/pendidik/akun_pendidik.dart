@@ -11,7 +11,8 @@ class AkunPendidikScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Profile Account'),
+        title: Text('Profile Account', style: TextStyle(fontWeight: FontWeight.bold),),
+        centerTitle: true,
       ),
       backgroundColor: HexToColor().hexStringToColor("62C9D8"),
       body: Center(
@@ -30,9 +31,9 @@ class AkunPendidikScreen extends StatelessWidget {
                   height: 20,
                 ),
                 Text(
-                  'Hani',
+                  'Bu Hani',
                   style: TextStyle(
-                      fontSize: 24,
+                      fontSize: 20,
                       fontWeight: FontWeight.bold,
                       color: Colors.white),
                 ),
