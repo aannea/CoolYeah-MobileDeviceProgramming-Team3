@@ -24,8 +24,7 @@ class AkunPendidikScreen extends StatelessWidget {
               children: [
                 CircleAvatar(
                   radius: 50,
-                  backgroundImage:
-                      AssetImage('./../images/pendidik_profile.png'),
+                  backgroundImage: AssetImage('images/pendidik_profile.png'),
                 ),
                 SizedBox(
                   height: 20,

@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:littlegrowth/auth_service.dart';
+import 'package:littlegrowth/utils/hex_to_color.dart';
 import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
@@ -40,6 +41,7 @@ class _LoginPageState extends State<LoginPage> {
 
     return SafeArea(
       child: Scaffold(
+        backgroundColor: HexToColor().hexStringToColor("62C9D8"),
         body: Padding(
           padding: const EdgeInsets.all(30),
           child: Column(
@@ -48,7 +50,10 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(height: 50),
               Text(
                 'Selamat\nDatang!',
-                style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    fontSize: 32,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white),
                 textAlign: TextAlign.left,
               ),
               SizedBox(height: 20),
@@ -63,14 +68,20 @@ class _LoginPageState extends State<LoginPage> {
                         Text(
                           'Masuk',
                           style: TextStyle(
-                              fontSize: 24, fontWeight: FontWeight.bold),
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white),
                           textAlign: TextAlign.left,
                         ),
                         TextFormField(
                           controller: _usernameController,
                           decoration: InputDecoration(
                             labelText: 'Email',
-                            suffixIcon: Icon(CupertinoIcons.mail),
+                            labelStyle: TextStyle(color: Colors.white),
+                            suffixIcon: Icon(
+                              CupertinoIcons.mail,
+                              color: Colors.white,
+                            ),
                           ),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
@@ -84,11 +95,16 @@ class _LoginPageState extends State<LoginPage> {
                           controller: _passwordController,
                           decoration: InputDecoration(
                             labelText: 'Password',
+                            labelStyle: TextStyle(color: Colors.white),
                             suffixIcon: IconButton(
                               icon: Icon(
                                 _isPasswordVisible
                                     ? CupertinoIcons.eye
                                     : CupertinoIcons.eye_slash,
+                              ),
+                              style: ButtonStyle(
+                                iconColor:
+                                    WidgetStatePropertyAll<Color>(Colors.white),
                               ),
                               onPressed: () {
                                 setState(() {
@@ -112,7 +128,9 @@ class _LoginPageState extends State<LoginPage> {
                             height: 72,
                             child: Padding(
                               padding: const EdgeInsets.symmetric(
-                                  horizontal: 10, vertical: 5),
+                                horizontal: 10,
+                                vertical: 5,
+                              ),
                               child: ElevatedButton(
                                 onPressed: () async {
                                   if (_formKey.currentState?.validate() ==
@@ -143,7 +161,7 @@ class _LoginPageState extends State<LoginPage> {
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Text('Sign In'),
+                                    Text('Masuk'),
                                     SizedBox(
                                         width: 8), // Spasi antara teks dan ikon
                                     Icon(CupertinoIcons.arrow_right),

@@ -18,8 +18,10 @@ class HomePage extends StatelessWidget {
     } else {
       if (user.role == 'admin') {
         return MainPendidikNavigator();
-      } else {
+      } else if (user.role == 'murid') {
         return MainMuridNavigator();
+      } else {
+        return LoginPage();
       }
     }
   }

@@ -12,12 +12,12 @@ class tambahDataFisik extends StatelessWidget {
         backgroundColor: Colors.cyan,
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
-          onPressed: (){
+          onPressed: () {
             Navigator.pop(context);
           },
         ),
       ),
-      body: Padding (
+      body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: SingleChildScrollView(
           child: Column(
@@ -29,12 +29,12 @@ class tambahDataFisik extends StatelessWidget {
                   children: [
                     CircleAvatar(
                       radius: 40,
-                      backgroundImage: AssetImage('images/abraham.png'),
+                      backgroundImage: AssetImage('images/child.png'),
                     ),
                     SizedBox(height: 10),
                     Text(
                       'Abraham',
-                      style:TextStyle(
+                      style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
                       ),
@@ -64,9 +64,7 @@ class tambahDataFisik extends StatelessWidget {
               SizedBox(height: 20),
               Center(
                 child: ElevatedButton(
-                  onPressed: () {
-
-                  },
+                  onPressed: () {},
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
                     shape: RoundedRectangleBorder(
@@ -88,17 +86,18 @@ class tambahDataFisik extends StatelessWidget {
       ),
     );
   }
+
   Widget buildDataField(String label) {
     return Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10.0),
-        child: TextField(
-            decoration: InputDecoration(
-              labelText: label,
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
-            ),
-            ),
-        );
-    }
+      padding: const EdgeInsets.symmetric(vertical: 10.0),
+      child: TextField(
+        decoration: InputDecoration(
+          labelText: label,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+        ),
+      ),
+    );
+  }
 }

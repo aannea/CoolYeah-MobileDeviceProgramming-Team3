@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:littlegrowth/auth_service.dart';
 import 'package:littlegrowth/firebase_options.dart';
 import 'package:littlegrowth/main_navigator.dart';
+import 'package:littlegrowth/view/pendidik/services/anaks_service.dart';
+import 'package:littlegrowth/view/pendidik/tambah_profil.dart';
 import 'package:provider/provider.dart';
 import 'package:littlegrowth/view/login.dart';
 import 'package:littlegrowth/view/splash_screen.dart';
@@ -19,8 +21,13 @@ Future<void> main() async {
     persistenceEnabled: true,
   );
   runApp(
-    ChangeNotifierProvider(
-      create: (context) => AuthService(),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => AuthService()),
+        ChangeNotifierProvider<AnakService>(
+          create: (context) => AnakService(),
+        ), // Tambahkan AnakService ke MultiProvider
+      ],
       child: MyApp(),
     ),
   );
@@ -38,6 +45,8 @@ class MyApp extends StatelessWidget {
       routes: {
         '/login': (context) => LoginPage(),
         '/home': (context) => HomePage(),
+        '/tambah_profil_anak': (context) =>
+            TambahProfilAnak(), // Tambahkan route untuk TambahProfilAnak
       },
     );
   }
