@@ -1,8 +1,7 @@
-import 'dart:convert';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:littlegrowth/view/pendidik/models/pendidik_laporan_akademik.dart';
 import 'package:littlegrowth/view/pendidik/models/pendidik_laporan_fisik.dart';
 
 class LaporanFisikService extends ChangeNotifier {
@@ -16,8 +15,8 @@ class LaporanFisikService extends ChangeNotifier {
         .doc(muridId)
         .collection('laporan_fisik')
         .withConverter<LaporanFisiksAnak>(
-          fromFirestore: (snapshot, _) =>
-              LaporanFisiksAnak.fromJson(snapshot.data()!),
+          fromFirestore: (snapshots, _) =>
+              LaporanFisiksAnak.fromJson(snapshots.data()!),
           toFirestore: (laporanFisik, _) => laporanFisik.toJson(),
         );
   }

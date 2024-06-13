@@ -20,6 +20,49 @@ class LaporanAkademikService extends ChangeNotifier {
         );
   }
 
+  Stream<QuerySnapshot<LaporanAkademiksAnak>> getLaporanAkademikStream(
+      String muridId) {
+    return _getLaporanAkademikCollection(muridId).snapshots();
+  }
+
+  Future<DocumentSnapshot<LaporanAkademiksAnak>> getLaporanAkademikById(
+      String muridId, String laporanId) async {
+    try {
+      // Mendapatkan dokumen dengan laporanId dari koleksi laporan akademik untuk murid tertentu
+      DocumentSnapshot<LaporanAkademiksAnak> docSnapshot =
+          await _getLaporanAkademikCollection(muridId).doc(laporanId).get();
+
+      // Memeriksa apakah dokumen ditemukan
+      if (docSnapshot.exists) {
+        return docSnapshot;
+      } else {
+        throw Exception(
+            "Document not found"); // Melemparkan error jika dokumen tidak ditemukan
+      }
+    } catch (e) {
+      print('Error fetching laporan akademik: $e');
+      throw e; // Melemparkan error untuk dikelola di lapisan yang lebih tinggi
+    }
+  }
+
+  Future<String?> getOneLaporanAkademikId(String muridId) async {
+    try {
+      // Mendapatkan QuerySnapshot dari koleksi laporan akademik untuk murid tertentu
+      QuerySnapshot<LaporanAkademiksAnak> querySnapshot =
+          await _getLaporanAkademikCollection(muridId).get();
+
+      // Mengambil ID dari satu dokumen pertama jika ada
+      if (querySnapshot.docs.isNotEmpty) {
+        return querySnapshot.docs.first.id;
+      } else {
+        return null; // Mengembalikan null jika tidak ada dokumen
+      }
+    } catch (e) {
+      print('Error getting laporan ID: $e');
+      throw e; // Melemparkan error untuk dikelola di lapisan yang lebih tinggi
+    }
+  }
+
   Future<void> createLaporanAkademik({
     required String muridId,
     String? emosiDeskripsi,
@@ -30,16 +73,12 @@ class LaporanAkademikService extends ChangeNotifier {
     String? motorikRekomendasi,
     String? sosialDeskripsi,
     String? sosialRekomendasi,
-    String? nilaiAnak,
+    String? nilaiAnakKognitif,
+    String? nilaiAnakEmosi,
+    String? nilaiAnakMotorik,
+    String? nilaiAnakSosial,
   }) async {
     try {
-      // Create subcollections for laporan_akademik
-      await _firestore
-          .collection('murids')
-          .doc(muridId)
-          .collection('laporan_akademik')
-          .add({});
-
       String id = _firestore.collection('murids').doc().id;
       LaporanAkademiksAnak laporanAkademik = LaporanAkademiksAnak(
         id: id,
@@ -51,7 +90,10 @@ class LaporanAkademikService extends ChangeNotifier {
         motorikRekomendasi: motorikRekomendasi,
         sosialDeskripsi: sosialDeskripsi,
         sosialRekomendasi: sosialRekomendasi,
-        nilaiAnak: nilaiAnak,
+        nilaiAnakKognitif: nilaiAnakKognitif,
+        nilaiAnakEmosi: nilaiAnakEmosi,
+        nilaiAnakMotorik: nilaiAnakMotorik,
+        nilaiAnakSosial: nilaiAnakSosial,
       );
 
       await _getLaporanAkademikCollection(muridId).doc(id).set(laporanAkademik);
@@ -71,7 +113,10 @@ class LaporanAkademikService extends ChangeNotifier {
     String? motorikRekomendasi,
     String? sosialDeskripsi,
     String? sosialRekomendasi,
-    String? nilaiAnak,
+    String? nilaiAnakKognitif,
+    String? nilaiAnakEmosi,
+    String? nilaiAnakMotorik,
+    String? nilaiAnakSosial,
   }) async {
     try {
       Map<String, dynamic> updateData = {};
@@ -99,8 +144,17 @@ class LaporanAkademikService extends ChangeNotifier {
       if (sosialRekomendasi != null) {
         updateData['sosial_rekomendasi'] = sosialRekomendasi;
       }
-      if (nilaiAnak != null) {
-        updateData['nilai_anak'] = nilaiAnak;
+      if (nilaiAnakKognitif != null) {
+        updateData['nilai_anak_kognitif'] = nilaiAnakKognitif;
+      }
+      if (nilaiAnakEmosi != null) {
+        updateData['nilai_anak_emosi'] = nilaiAnakEmosi;
+      }
+      if (nilaiAnakMotorik != null) {
+        updateData['nilai_anak_motorik'] = nilaiAnakMotorik;
+      }
+      if (nilaiAnakSosial != null) {
+        updateData['nilai_anak_sosial'] = nilaiAnakSosial;
       }
 
       await _getLaporanAkademikCollection(muridId)
@@ -120,10 +174,5 @@ class LaporanAkademikService extends ChangeNotifier {
     } catch (e) {
       print('Error: $e');
     }
-  }
-
-  Stream<QuerySnapshot<LaporanAkademiksAnak>> getLaporanAkademikStream(
-      String muridId) {
-    return _getLaporanAkademikCollection(muridId).snapshots();
   }
 }

@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:littlegrowth/utils/hex_to_color.dart';
 import 'package:littlegrowth/view/pendidik/models/pendidik_anaks.dart';
+import 'package:littlegrowth/view/pendidik/services/laporan_fisiks_anak_service.dart';
 import 'package:littlegrowth/view/pendidik/tambah_data_fisik.dart';
 import 'package:littlegrowth/view/pendidik/tambah_sosial.dart';
 import 'tambah_emosional.dart';
@@ -12,6 +13,7 @@ import 'tambah_motorik.dart';
 
 class TambahDataAnakMainScreen extends StatelessWidget {
   final QueryDocumentSnapshot<Murid> murid;
+  final LaporanFisikService _laporanFisikService = LaporanFisikService();
 
   TambahDataAnakMainScreen({super.key, required this.murid}) {
     idMurid = murid['id'];
@@ -171,7 +173,9 @@ class TambahDataAnakMainScreen extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => LaporanKognitif()),
+                                    builder: (context) => LaporanKognitif(
+                                          muridId: murid.id,
+                                        )),
                               );
                             },
                             child: Container(
@@ -205,7 +209,9 @@ class TambahDataAnakMainScreen extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => LaporanMotorik()),
+                                    builder: (context) => LaporanMotorik(
+                                          muridId: murid.id,
+                                        )),
                               );
                             },
                             child: Container(
@@ -243,7 +249,9 @@ class TambahDataAnakMainScreen extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => LaporanEmosional()),
+                                    builder: (context) => LaporanEmosional(
+                                          muridId: murid.id,
+                                        )),
                               );
                             },
                             child: Container(
@@ -277,7 +285,9 @@ class TambahDataAnakMainScreen extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => LaporanSosial()),
+                                    builder: (context) => LaporanSosial(
+                                          muridId: murid.id,
+                                        )),
                               );
                             },
                             child: Container(

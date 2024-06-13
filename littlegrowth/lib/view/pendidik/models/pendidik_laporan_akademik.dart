@@ -8,7 +8,10 @@ class LaporanAkademiksAnak {
   final String? motorikRekomendasi;
   final String? sosialDeskripsi;
   final String? sosialRekomendasi;
-  final String? nilaiAnak;
+  final String? nilaiAnakKognitif;
+  final String? nilaiAnakEmosi;
+  final String? nilaiAnakMotorik;
+  final String? nilaiAnakSosial;
 
   LaporanAkademiksAnak({
     required this.id,
@@ -20,7 +23,10 @@ class LaporanAkademiksAnak {
     this.motorikRekomendasi,
     this.sosialDeskripsi,
     this.sosialRekomendasi,
-    this.nilaiAnak,
+    this.nilaiAnakKognitif,
+    this.nilaiAnakEmosi,
+    this.nilaiAnakMotorik,
+    this.nilaiAnakSosial,
   });
 
   Map<String, dynamic> toJson() {
@@ -34,7 +40,10 @@ class LaporanAkademiksAnak {
       'motorik_rekomendasi': motorikRekomendasi,
       'sosial_deskripsi': sosialDeskripsi,
       'sosial_rekomendasi': sosialRekomendasi,
-      'nilai_anak': nilaiAnak,
+      'nilai_anak_kognitif': nilaiAnakKognitif,
+      'nilai_anak_emosi': nilaiAnakEmosi,
+      'nilai_anak_motorik': nilaiAnakMotorik,
+      'nilai_anak_sosial': nilaiAnakSosial,
     };
   }
 
@@ -49,7 +58,10 @@ class LaporanAkademiksAnak {
       motorikRekomendasi: json['motorik_rekomendasi'] as String?,
       sosialDeskripsi: json['sosial_deskripsi'] as String?,
       sosialRekomendasi: json['sosial_rekomendasi'] as String?,
-      nilaiAnak: json['nilai_anak'] as String?,
+      nilaiAnakKognitif: json['nilai_anak_kognitif'] as String?,
+      nilaiAnakEmosi: json['nilai_anak_emosi'] as String?,
+      nilaiAnakMotorik: json['nilai_anak_motorik'] as String?,
+      nilaiAnakSosial: json['nilai_anak_sosial'] as String?,
     );
   }
 }
