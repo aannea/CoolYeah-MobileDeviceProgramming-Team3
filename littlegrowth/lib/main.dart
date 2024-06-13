@@ -7,6 +7,8 @@ import 'package:littlegrowth/auth_service.dart';
 import 'package:littlegrowth/firebase_options.dart';
 import 'package:littlegrowth/main_navigator.dart';
 import 'package:littlegrowth/view/pendidik/services/anaks_service.dart';
+import 'package:littlegrowth/view/pendidik/services/laporan_akademiks_anak_service.dart';
+import 'package:littlegrowth/view/pendidik/services/laporan_fisiks_anak_service.dart';
 import 'package:littlegrowth/view/pendidik/tambah_profil.dart';
 import 'package:provider/provider.dart';
 import 'package:littlegrowth/view/login.dart';
@@ -26,7 +28,13 @@ Future<void> main() async {
         ChangeNotifierProvider(create: (context) => AuthService()),
         ChangeNotifierProvider<AnakService>(
           create: (context) => AnakService(),
-        ), // Tambahkan AnakService ke MultiProvider
+        ),
+        ChangeNotifierProvider<LaporanFisikService>(
+          create: (context) => LaporanFisikService(),
+        ),
+        ChangeNotifierProvider<LaporanAkademikService>(
+          create: (context) => LaporanAkademikService(),
+        ),
       ],
       child: MyApp(),
     ),

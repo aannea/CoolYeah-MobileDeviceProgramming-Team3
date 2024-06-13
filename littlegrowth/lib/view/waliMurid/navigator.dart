@@ -23,7 +23,7 @@ class _MainMuridNavigatorState extends State<MainMuridNavigator> {
     Icon(Icons.person, size: 30),
   ];
 
-  int _selectedIndex = 1;
+  int _selectedIndex = 0;
 
   List<Widget> _screens = [
     DetailAnakScreen(),

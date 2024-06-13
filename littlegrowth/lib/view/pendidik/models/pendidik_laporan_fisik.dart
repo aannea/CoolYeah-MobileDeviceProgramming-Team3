@@ -2,17 +2,17 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class LaporanFisiksAnak {
   final String id;
-  final int bb; // Berat Badan
-  final int tinggi;
-  final int lingkarKepala;
-  final Timestamp date;
+  final int? bb; // Berat Badan
+  final int? tinggi;
+  final int? lingkarKepala;
+  final Timestamp? date;
 
   LaporanFisiksAnak({
     required this.id,
-    required this.bb,
-    required this.tinggi,
-    required this.lingkarKepala,
-    required this.date,
+    this.bb,
+    this.tinggi,
+    this.lingkarKepala,
+    this.date,
   });
 
   Map<String, dynamic> toJson() {
@@ -32,6 +32,17 @@ class LaporanFisiksAnak {
       tinggi: json['tinggi'] as int,
       lingkarKepala: json['lingkar_kepala'] as int,
       date: json['date'] as Timestamp,
+    );
+  }
+
+  factory LaporanFisiksAnak.fromFirestore(DocumentSnapshot doc) {
+    Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
+    return LaporanFisiksAnak(
+      id: doc.id,
+      bb: data['bb'] ?? 0,
+      tinggi: data['tinggi'] ?? 0,
+      lingkarKepala: data['lingkar_kepala'] ?? 0,
+      date: data['date'] ?? Timestamp.now(),
     );
   }
 }

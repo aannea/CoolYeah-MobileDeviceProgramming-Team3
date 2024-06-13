@@ -45,6 +45,7 @@ class AnakService extends ChangeNotifier {
 
       // Save user data in Firestore
       await _firestore.collection('murids').doc(uid).set({
+        'id': uid,
         'email': email,
         'nama_lengkap': namaLengkap,
         'username': username,
@@ -67,6 +68,16 @@ class AnakService extends ChangeNotifier {
 
   Stream<QuerySnapshot<Murid>> getmurids() {
     return _muridsRef.snapshots();
+  }
+
+  Future<Murid?> getMuridById(String id) async {
+    try {
+      DocumentSnapshot<Murid> doc = await _muridsRef.doc(id).get();
+      return doc.data();
+    } catch (e) {
+      print("Error getting murid by id: $e");
+      return null;
+    }
   }
 
   Future<void> updateMurid({

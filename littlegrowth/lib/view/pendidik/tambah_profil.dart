@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, use_full_hex_values_for_flutter_colors, use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
-import 'package:littlegrowth/auth_service.dart';
 import 'package:littlegrowth/view/pendidik/services/anaks_service.dart';
 import 'package:provider/provider.dart';
 
@@ -25,7 +24,10 @@ class _TambahProfilAnakState extends State<TambahProfilAnak> {
       child: Scaffold(
         resizeToAvoidBottomInset: true,
         appBar: AppBar(
-          title: Text('Tambah Data Anak', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),),
+          title: Text(
+            'Tambah Data Anak',
+            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+          ),
           centerTitle: true,
           backgroundColor: Colors.cyan,
           leading: IconButton(

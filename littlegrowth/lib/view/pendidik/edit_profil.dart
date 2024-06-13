@@ -7,7 +7,7 @@ import 'package:littlegrowth/view/pendidik/models/pendidik_anaks.dart';
 import 'package:littlegrowth/view/pendidik/services/anaks_service.dart';
 import 'package:provider/provider.dart';
 
-class EditProfil extends StatelessWidget{
+class EditProfil extends StatelessWidget {
   final QueryDocumentSnapshot<Murid> murid;
 
   EditProfil({super.key, required this.murid}) {
@@ -17,6 +17,7 @@ class EditProfil extends StatelessWidget{
     birthdateController.text = murid['birthday'];
     genderController.text = murid['jenis_kelamin'];
     usernameController.text = murid['username'];
+    emailController.text = murid['email'];
   }
 
   final TextEditingController nameController = TextEditingController();
@@ -24,6 +25,7 @@ class EditProfil extends StatelessWidget{
   final TextEditingController birthdateController = TextEditingController();
   final TextEditingController genderController = TextEditingController();
   final TextEditingController usernameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
 
   void updateDataMurid(BuildContext context) async {
     try {
@@ -74,7 +76,10 @@ class EditProfil extends StatelessWidget{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Edit Peserta Didik', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),),
+        title: Text(
+          'Edit Peserta Didik',
+          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+        ),
         centerTitle: true,
         backgroundColor: HexToColor().hexStringToColor("62C9D8"),
         leading: IconButton(
@@ -85,7 +90,6 @@ class EditProfil extends StatelessWidget{
           },
         ),
       ),
-
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: SingleChildScrollView(
@@ -93,7 +97,8 @@ class EditProfil extends StatelessWidget{
             children: [
               CircleAvatar(
                 radius: 40,
-                backgroundImage: AssetImage('images/account.png'), // Replace with your asset image
+                backgroundImage: AssetImage(
+                    'images/account.png'), // Replace with your asset image
                 child: Align(
                   alignment: Alignment.bottomRight,
                   child: Icon(
@@ -108,6 +113,7 @@ class EditProfil extends StatelessWidget{
               buildBoxedTextField('Tanggal Lahir', birthdateController),
               buildBoxedTextField('Jenis Kelamin', genderController),
               buildBoxedTextField('Username', usernameController),
+              buildBoxedTextField('Username', emailController),
               SizedBox(height: 20),
               Center(
                 child: ElevatedButton(
@@ -116,7 +122,7 @@ class EditProfil extends StatelessWidget{
                   },
                   style: ElevatedButton.styleFrom(
                     padding:
-                    EdgeInsets.symmetric(horizontal: 100, vertical: 15),
+                        EdgeInsets.symmetric(horizontal: 100, vertical: 15),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
@@ -136,7 +142,9 @@ class EditProfil extends StatelessWidget{
                   ),
                 ),
               ),
-              SizedBox(height: 20,),
+              SizedBox(
+                height: 20,
+              ),
               Center(
                 child: ElevatedButton(
                   onPressed: () {
@@ -144,8 +152,7 @@ class EditProfil extends StatelessWidget{
                     deleteDataMurid(context);
                   },
                   style: ElevatedButton.styleFrom(
-                    padding:
-                    EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                    padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
@@ -172,19 +179,22 @@ class EditProfil extends StatelessWidget{
     );
   }
 
-  Widget buildBoxedTextField(String labelText, TextEditingController controller, [TextInputType keyboardType = TextInputType.text, bool obscureText = false]) {
+  Widget buildBoxedTextField(String labelText, TextEditingController controller,
+      [TextInputType keyboardType = TextInputType.text,
+      bool obscureText = false]) {
     return Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8.0),
-        child: TextField(
-            controller: controller,
-            decoration: InputDecoration(
-              labelText: labelText,
-              border: OutlineInputBorder(),
-              contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0), // Adjust padding
-            ),
-            keyboardType: keyboardType,
-            obscureText: obscureText,
-            ),
-        );
-    }
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: TextField(
+        controller: controller,
+        decoration: InputDecoration(
+          labelText: labelText,
+          border: OutlineInputBorder(),
+          contentPadding: EdgeInsets.symmetric(
+              horizontal: 16.0, vertical: 12.0), // Adjust padding
+        ),
+        keyboardType: keyboardType,
+        obscureText: obscureText,
+      ),
+    );
+  }
 }

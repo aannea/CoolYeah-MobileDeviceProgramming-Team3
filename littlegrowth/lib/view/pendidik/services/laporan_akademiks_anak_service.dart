@@ -1,8 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:littlegrowth/view/pendidik/models/pendidik_laporan_akademik.dart';
 
-class LaporanAkademikService {
+class LaporanAkademikService extends ChangeNotifier {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
@@ -29,6 +30,7 @@ class LaporanAkademikService {
     String? motorikRekomendasi,
     String? sosialDeskripsi,
     String? sosialRekomendasi,
+    String? nilaiAnak,
   }) async {
     try {
       // Create subcollections for laporan_akademik
@@ -49,6 +51,7 @@ class LaporanAkademikService {
         motorikRekomendasi: motorikRekomendasi,
         sosialDeskripsi: sosialDeskripsi,
         sosialRekomendasi: sosialRekomendasi,
+        nilaiAnak: nilaiAnak,
       );
 
       await _getLaporanAkademikCollection(muridId).doc(id).set(laporanAkademik);
@@ -68,6 +71,7 @@ class LaporanAkademikService {
     String? motorikRekomendasi,
     String? sosialDeskripsi,
     String? sosialRekomendasi,
+    String? nilaiAnak,
   }) async {
     try {
       Map<String, dynamic> updateData = {};
@@ -94,6 +98,9 @@ class LaporanAkademikService {
       }
       if (sosialRekomendasi != null) {
         updateData['sosial_rekomendasi'] = sosialRekomendasi;
+      }
+      if (nilaiAnak != null) {
+        updateData['nilai_anak'] = nilaiAnak;
       }
 
       await _getLaporanAkademikCollection(muridId)

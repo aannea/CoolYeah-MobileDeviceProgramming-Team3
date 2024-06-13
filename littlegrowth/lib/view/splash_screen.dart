@@ -21,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Future<void> _navigateToLogin() async {
-    await Future.delayed(Duration(seconds: 3));
+    await Future.delayed(Duration(seconds: 2));
     var authService = Provider.of<AuthService>(context, listen: false);
     var user = authService.currentUser;
 

@@ -1,8 +1,11 @@
+import 'dart:convert';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:littlegrowth/view/pendidik/models/pendidik_laporan_fisik.dart';
 
-class LaporanFisikService {
+class LaporanFisikService extends ChangeNotifier {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
@@ -19,6 +22,11 @@ class LaporanFisikService {
         );
   }
 
+  Stream<QuerySnapshot<LaporanFisiksAnak>> getLaporanFisikStream(
+      String muridId) {
+    return _getLaporanFisikCollection(muridId).snapshots();
+  }
+
   Future<void> createLaporanFisik({
     required String muridId,
     required int bb,
@@ -28,11 +36,6 @@ class LaporanFisikService {
   }) async {
     try {
       // Create subcollections for laporan_akademik
-      await _firestore
-          .collection('murids')
-          .doc(muridId)
-          .collection('laporan_fisik')
-          .add({});
       String id = _firestore.collection('murids').doc().id;
       LaporanFisiksAnak laporanFisik = LaporanFisiksAnak(
         id: id,
@@ -41,13 +44,6 @@ class LaporanFisikService {
         lingkarKepala: lingkarKepala,
         date: date,
       );
-
-      // Save user data in users collection
-      // await _firestore.collection('users').doc(uid).set({
-      //   'id': uid,
-      //   'email': email,
-      //   'role': role,
-      // });
 
       await _getLaporanFisikCollection(muridId).doc(id).set(laporanFisik);
     } catch (e) {
@@ -87,10 +83,5 @@ class LaporanFisikService {
     } catch (e) {
       print('Error: $e');
     }
-  }
-
-  Stream<QuerySnapshot<LaporanFisiksAnak>> getLaporanFisikStream(
-      String muridId) {
-    return _getLaporanFisikCollection(muridId).snapshots();
   }
 }

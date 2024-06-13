@@ -1,14 +1,34 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:littlegrowth/utils/hex_to_color.dart';
+import 'package:littlegrowth/view/pendidik/models/pendidik_anaks.dart';
+import 'package:littlegrowth/view/pendidik/models/pendidik_laporan_fisik.dart';
+import 'package:littlegrowth/view/pendidik/services/laporan_fisiks_anak_service.dart';
+import 'package:provider/provider.dart';
 
 class DetailFisik extends StatelessWidget {
+  // QueryDocumentSnapshot<Murid>? murid;
+
+  // DetailFisik({super.key, this.murid}) {
+  //   idMurid = murid!['id'];
+  //   nameMurid = murid!['nama_lengkap'];
+  //   birthdayMurid = murid!['birthday'];
+  // }
+
+  // String? idMurid;
+  // String? nameMurid;
+  // String? birthdayMurid;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Laporan Perkembangan Fisik', style: TextStyle(fontWeight: FontWeight.bold),),
+          title: Text(
+            'Laporan Perkembangan Fisik',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
           centerTitle: true,
         ),
         backgroundColor: HexToColor().hexStringToColor("62C9D8"),
@@ -18,18 +38,22 @@ class DetailFisik extends StatelessWidget {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  SizedBox(height: 15,),
+                  SizedBox(
+                    height: 15,
+                  ),
                   Row(
                     children: [
                       Container(
                         padding: EdgeInsets.all(10),
                         decoration: BoxDecoration(
                             color: Color(0xFFFE77373),
-                            borderRadius: BorderRadius.circular(20)
-                        ),
-                        child: Text(
-                            'Laporan Fisik',
-                            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.white), textAlign: TextAlign.start),
+                            borderRadius: BorderRadius.circular(20)),
+                        child: Text('Laporan Fisik',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20,
+                                color: Colors.white),
+                            textAlign: TextAlign.start),
                       ),
                     ],
                   ),
@@ -46,9 +70,8 @@ class DetailFisik extends StatelessWidget {
                     },
                     children: [
                       TableRow(
-                        decoration: BoxDecoration(
-                            color: const Color(0xFFFE77373)),
-
+                        decoration:
+                            BoxDecoration(color: const Color(0xFFFE77373)),
                         children: [
                           Padding(
                             padding: const EdgeInsets.all(8.0),
@@ -101,8 +124,8 @@ class DetailFisik extends StatelessWidget {
                                 'Januari',
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    color:
-                                    const Color.fromARGB(255, 235, 91, 139)),
+                                    color: const Color.fromARGB(
+                                        255, 235, 91, 139)),
                                 textAlign: TextAlign.center,
                               ),
                             ),
@@ -134,8 +157,8 @@ class DetailFisik extends StatelessWidget {
                                 'Februari',
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    color:
-                                    const Color.fromARGB(255, 235, 91, 139)),
+                                    color: const Color.fromARGB(
+                                        255, 235, 91, 139)),
                                 textAlign: TextAlign.center,
                               ),
                             ),
@@ -167,8 +190,8 @@ class DetailFisik extends StatelessWidget {
                                 'Maret',
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    color:
-                                    const Color.fromARGB(255, 235, 91, 139)),
+                                    color: const Color.fromARGB(
+                                        255, 235, 91, 139)),
                                 textAlign: TextAlign.center,
                               ),
                             ),
@@ -200,8 +223,8 @@ class DetailFisik extends StatelessWidget {
                                 'April',
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    color:
-                                    const Color.fromARGB(255, 235, 91, 139)),
+                                    color: const Color.fromARGB(
+                                        255, 235, 91, 139)),
                                 textAlign: TextAlign.center,
                               ),
                             ),
@@ -231,8 +254,8 @@ class DetailFisik extends StatelessWidget {
                                 'Mei',
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    color:
-                                    const Color.fromARGB(255, 235, 91, 139)),
+                                    color: const Color.fromARGB(
+                                        255, 235, 91, 139)),
                                 textAlign: TextAlign.center,
                               ),
                             ),
@@ -262,8 +285,8 @@ class DetailFisik extends StatelessWidget {
                                 'Juni',
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    color:
-                                    const Color.fromARGB(255, 235, 91, 139)),
+                                    color: const Color.fromARGB(
+                                        255, 235, 91, 139)),
                                 textAlign: TextAlign.center,
                               ),
                             ),
@@ -293,8 +316,8 @@ class DetailFisik extends StatelessWidget {
                                 'Juli',
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    color:
-                                    const Color.fromARGB(255, 235, 91, 139)),
+                                    color: const Color.fromARGB(
+                                        255, 235, 91, 139)),
                                 textAlign: TextAlign.center,
                               ),
                             ),
@@ -324,8 +347,8 @@ class DetailFisik extends StatelessWidget {
                                 'Agustus',
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    color:
-                                    const Color.fromARGB(255, 235, 91, 139)),
+                                    color: const Color.fromARGB(
+                                        255, 235, 91, 139)),
                                 textAlign: TextAlign.center,
                               ),
                             ),
@@ -355,8 +378,8 @@ class DetailFisik extends StatelessWidget {
                                 'September',
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    color:
-                                    const Color.fromARGB(255, 235, 91, 139)),
+                                    color: const Color.fromARGB(
+                                        255, 235, 91, 139)),
                                 textAlign: TextAlign.center,
                               ),
                             ),
@@ -386,8 +409,8 @@ class DetailFisik extends StatelessWidget {
                                 'Oktober',
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    color:
-                                    const Color.fromARGB(255, 235, 91, 139)),
+                                    color: const Color.fromARGB(
+                                        255, 235, 91, 139)),
                                 textAlign: TextAlign.center,
                               ),
                             ),
@@ -417,8 +440,8 @@ class DetailFisik extends StatelessWidget {
                                 'November',
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    color:
-                                    const Color.fromARGB(255, 235, 91, 139)),
+                                    color: const Color.fromARGB(
+                                        255, 235, 91, 139)),
                                 textAlign: TextAlign.center,
                               ),
                             ),
@@ -448,8 +471,8 @@ class DetailFisik extends StatelessWidget {
                                 'Desember',
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    color:
-                                    const Color.fromARGB(255, 235, 91, 139)),
+                                    color: const Color.fromARGB(
+                                        255, 235, 91, 139)),
                                 textAlign: TextAlign.center,
                               ),
                             ),
@@ -472,7 +495,6 @@ class DetailFisik extends StatelessWidget {
                           ]),
                     ],
                   ),
-
                   SizedBox(
                     height: 100,
                   ),

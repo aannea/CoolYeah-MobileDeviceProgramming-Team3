@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:littlegrowth/utils/hex_to_color.dart';
 import 'package:littlegrowth/view/pendidik/models/pendidik_anaks.dart';
+import 'package:littlegrowth/view/pendidik/models/pendidik_laporan_fisik.dart';
 import 'package:littlegrowth/view/pendidik/services/anaks_service.dart';
 import 'package:littlegrowth/view/pendidik/tambah_data_main.dart';
 import 'package:provider/provider.dart';
@@ -13,7 +14,10 @@ class DaftarAnak extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tambah Laporan Anak', style: TextStyle(fontWeight: FontWeight.bold),),
+        title: Text(
+          'Tambah Laporan Anak',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
         centerTitle: true,
       ),
       backgroundColor: HexToColor().hexStringToColor("62C9D8"),
@@ -37,11 +41,15 @@ class DaftarAnak extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    SizedBox(height: 20,),
+                    SizedBox(
+                      height: 20,
+                    ),
                     Text(
                       'Daftar Anak-Anak',
-                      style:
-                          TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.white),
+                      style: TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
                     ),
                     SizedBox(height: 16),
                     // Iterate through the documents and display each one
@@ -71,7 +79,9 @@ class DaftarAnak extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => TambahDataAnakMainScreen(murid: murid),
+              builder: (context) => TambahDataAnakMainScreen(
+                murid: murid,
+              ),
             ),
           );
         },
@@ -105,8 +115,10 @@ class DaftarAnak extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) =>
-                              TambahDataAnakMainScreen(murid: murid)),
+                        builder: (context) => TambahDataAnakMainScreen(
+                          murid: murid,
+                        ),
+                      ),
                     );
                   },
                 ),
